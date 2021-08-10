@@ -18,10 +18,13 @@ Route::group([
     'namespace' => 'Backend',
     'middleware' => ['auth'],
 ], function () {
-    Route::get('/', function () {
+    Route::get('admin', function () {
         return view('backend.welcome');
     });
     foreach (config('menu.menu') as $menu) {
         Route::resource($menu['slug'], str_replace(' ', '', ucwords(str_replace("-", " ", $menu['slug']) . 'Controller')));
     }
+});
+Route::get('/', function(){
+    print('Welcome');
 });
