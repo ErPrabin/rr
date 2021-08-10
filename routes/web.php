@@ -19,7 +19,7 @@ Route::group([
     'middleware' => ['auth'],
 ], function () {
     Route::get('/', function () {
-        return view('welcome');
+        return view('backend.welcome');
     });
     foreach (config('menu.menu') as $menu) {
         Route::resource($menu['slug'], str_replace(' ', '', ucwords(str_replace("-", " ", $menu['slug']) . 'Controller')));

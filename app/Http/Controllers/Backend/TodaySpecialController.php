@@ -29,6 +29,6 @@ class TodaySpecialController extends Controller
         $data = $this->c::findOrFail($id);
         $category = Category::get();
 
-        return view('backend.' . $this->module . '.edit', compact('data', 'category'))->withPage($this->module);
+        return view('backend.pages.' . $this->module . '.edit', compact('data', 'category'))->withPage($this->module);
     }
 }

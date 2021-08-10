@@ -12,18 +12,18 @@ trait Crud
     public function index()
     {
         $data = $this->c::orderBy('sort', 'asc')->get();
-        return view('backend.' . $this->module . '.index', compact('data'))->withPage($this->module);
+        return view('backend.pages.' . $this->module . '.index', compact('data'))->withPage($this->module);
     }
 
     public function create()
     {
-        return view('backend.' . $this->module . '.create')->withPage($this->module);
+        return view('backend.pages.' . $this->module . '.create')->withPage($this->module);
     }
 
     public function edit($id)
     {
         $data = $this->c::findOrFail($id);
-        return view('backend.' . $this->module . '.edit', compact('data'))->withPage($this->module);
+        return view('backend.pages.' . $this->module . '.edit', compact('data'))->withPage($this->module);
     }
 
     public  function store(Request $request)

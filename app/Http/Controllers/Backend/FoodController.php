@@ -22,13 +22,13 @@ class FoodController extends Controller
     public function create()
     {
         $category = Category::get();
-        return view('backend.' . $this->module . '.create', compact('category'))->withpage($this->module);
+        return view('backend.pages.' . $this->module . '.create', compact('category'))->withpage($this->module);
     }
     public function edit($id)
     {
         $data = $this->c::findOrFail($id);
         $category = Category::get();
 
-        return view('backend.' . $this->module . '.edit', compact('data', 'category'))->withPage($this->module);
+        return view('backend.pages.' . $this->module . '.edit', compact('data', 'category'))->withPage($this->module);
     }
 }
