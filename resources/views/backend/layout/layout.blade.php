@@ -69,9 +69,15 @@
                     <div class="collapse navbar-collapse justify-content-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="javascript:;">
-                                    <i class="material-icons">notifications</i> Notifications
-                                </a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+    
+                                    <x-jet-dropdown-link href="{{ route('logout') }}"
+                                             onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                        <button class="btn btn-danger">{{ __('Log Out') }}</button>
+                                    </x-jet-dropdown-link>
+                                </form>
                             </li>
                             <!-- your navbar here -->
                         </ul>
