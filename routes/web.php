@@ -25,6 +25,13 @@ Route::group([
         Route::resource($menu['slug'], str_replace(' ', '', ucwords(str_replace("-", " ", $menu['slug']) . 'Controller')));
     }
 });
+
+//santoshi
 Route::get('/', function(){
     print('Welcome');
 });
+
+
+
+
+//Prabin
