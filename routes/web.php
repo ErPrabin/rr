@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Http\Controllers\FrontEndController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +31,7 @@ Route::group([
 });
 
 //santoshi
-Route::get('/', function(){
-    print('Welcome');
-});
+Route::get('/', [FrontEndController::class,'index'])->name('home');
 
 
 
