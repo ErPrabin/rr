@@ -32,7 +32,13 @@ Route::group([
 
 //santoshi
 Route::get('/', [FrontEndController::class,'index'])->name('home');
-
+Route::get('/cart', [FrontEndController::class,'cart'])->name('cart');
+Route::get('/contact-us', [FrontEndController::class,'contact'])->name('contact');
+Route::get('/about-us', [FrontEndController::class,'about'])->name('about');
+Route::get('/terms-and-conditions', [FrontEndController::class,'terms'])->name('terms');
+Route::get('/privacy-policy', [FrontEndController::class,'privacy'])->name('privacy');
+Route::get('/checkout', [FrontEndController::class,'checkout'])->name('checkout');
+Route::get('/gallery', [FrontEndController::class,'gallery'])->name('gallery');
 
 
 

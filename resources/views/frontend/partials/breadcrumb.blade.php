@@ -1,22 +1,19 @@
-
-<section class="page-title divider breadcrumb">
-    <div class="container pt-0 pb-0">
-      <!-- Section Content -->
-      <div class="section-content">
-        <div class="row">
-          <div class="col-md-12">
-            {{-- <h2 class="title text-white">{{$title1}}</h2> --}}
-            <nav role="navigation" class="breadcrumb-trail breadcrumbs">
-              <div class="breadcrumbs">
-                <span class="trail-item trail-begin">
-                  <a href="{{route('index')}}"><span class="text-white">Home</span></a>
-                </span>
-                <span><i class="fa fa-angle-right"></i></span>
-                <span class="trail-item trail-end text-white" >{{$title1 ?? ''}}</span>
-              </div>
-            </nav>
-          </div>
+<section class="breadcrumbs-custom">
+    <div class="parallax-container" data-parallax-img="images/bg-about.jpg">
+        <div class="breadcrumbs-custom-body parallax-content context-dark">
+            <div class="container">
+            <h2 class="text-transform-capitalize breadcrumbs-custom-title">About Us</h2>
+            <h5 class="breadcrumbs-custom-text">We are industry-leading organic farm delivering the best products <br class="d-none d-md-block">that boost your daily life energy and potential.</h5>
+            </div>
         </div>
-      </div>
+    </div>
+    <div class="breadcrumbs-custom-footer">
+        <div class="container">
+            <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Pages</a></li>
+            <li class="active">About Us</li>
+            </ul>
+        </div>
     </div>
 </section>

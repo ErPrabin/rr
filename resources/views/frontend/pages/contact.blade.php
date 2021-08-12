@@ -1,5 +1,5 @@
 @extends('frontend.master')
-@section('title')
+{{-- @section('title')
 @include('frontend.partials.title',[
 'pagetitle'=> \App\Util\Util::getMetDataCont($metatags,'Contact Us','title')
 ])
@@ -8,72 +8,94 @@
 @include('frontend.partials.meta',[
 'metatags' => \App\Util\Util::getMetDataCont($metatags,'contact')
 ])
-@endsection
+@endsection --}}
 @section('content')
-<div class="container">
-    <div class=" mt-5">
-        <div class="text-center">
-            <h2 class="mb-0">Contact Us</h2>
-            <h2 class="contact-head-underline"></h2>
-        </div>
-        @include('frontend.partials.messages')
-        <div class="mt-5 mb-5 connection-form">
-            <div class="mb-5 contact-form">
-                <form class="p-5" method="POST" action="{{ route('mail.send') }}">
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <div class="form-group py-3">
-                                <label class="mb-2" for="exampleInputName">Name*</label>
-                                <input type="text" name="name" class="form-control" id="exampleInputName"
-                                    aria-describedby="nameHelp" required>
-                            </div>
-                            <div class="form-group py-3">
-                                <label class="mb-2" for="exampleInputEmail1">Subject*</label>
-                                <input type="text" name="subject" class="form-control" id="exampleInputEmail1" required>
-                            </div>
 
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <div class="form-group py-3">
-                                <label class="mb-2" for="exampleInputEmail2">Email Address*</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail2"
-                                    aria-describedby="emailHelp" required>
-                            </div>
-                            <div class="form-group py-3">
-                                <label class="mb-2" for="phone">Phone Number*</label>
-                                <input type="text" name="phone" class="form-control" id="exampleInputPhone" required>
-                            </div>
+    @include('frontend.partials.header')
+    @include('frontend.partials.breadcrumb')
 
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group py-3">
-                                <label class="mb-2" for="phone">Your Message*</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"
-                                    required></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-12 recaptcha-style">
-                            <div class="g-recaptcha" data-sitekey="6Lcv8tsbAAAAAKqf-ItEy0xgz3biz1PjwNGmKAw9" data-callback="correctCaptcha"></div>
-                        </div>
-                        <div class="col-md-3">
-                            <button type="submit" class="btn text-white primary-bg send-button">Send Your Message</button>
+    <!-- Get in touch-->
+    <section class="section section-xl bg-default text-md-start">
+        <div class="container">
+            <div class="title-classic">
+                <h3 class="title-classic-title">Get in touch</h3>
+                <p class="title-classic-subtitle">We are available 24/7 by fax, e-mail or by phone. You can also use our <br class="d-none d-lg-block">quick contact form to ask a question about our products.</p>
+            </div>
+            <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                <div class="row row-20 row-md-30">
+                <div class="col-lg-8">
+                    <div class="row row-20 row-md-30">
+                    <div class="col-sm-6">
+                        <div class="form-wrap">
+                        <input class="form-input" id="contact-first-name-2" type="text" name="name" data-constraints="@Required"/>
+                        <label class="form-label" for="contact-first-name-2">First Name</label>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- <section>
-        <div class="container-fluid p-0">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="map-style">
-                        {!! \App\Util\Util::getCData($components, 'Map', 'description') !!}
+                    <div class="col-sm-6">
+                        <div class="form-wrap">
+                        <input class="form-input" id="contact-last-name-2" type="text" name="name" data-constraints="@Required"/>
+                        <label class="form-label" for="contact-last-name-2">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-wrap">
+                        <input class="form-input" id="contact-email-2" type="email" name="email" data-constraints="@Email @Required"/>
+                        <label class="form-label" for="contact-email-2">E-mail</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-wrap">
+                        <input class="form-input" id="contact-phone-2" type="text" name="phone" data-constraints="@Numeric"/>
+                        <label class="form-label" for="contact-phone-2">Phone</label>
+                        </div>
+                    </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-lg-4">
+                    <div class="form-wrap">
+                    <label class="form-label" for="contact-message-2">Message</label>
+                    <textarea class="form-input textarea-lg" id="contact-message-2" name="phone" data-constraints="@Required"></textarea>
+                    </div>
+                </div>
+                </div>
+                <button class="button button-lg button-primary button-zakaria" type="submit">Send Message</button>
+            </form>
         </div>
-    </section> --}}
+    </section>
+    <!-- Get in touch-->
+    <section class="section section-xl bg-gray-4">
+    <div class="container">
+        <div class="row row-30 justify-content-center">
+        <div class="col-sm-6 col-md-4">
+            <h4>Phones</h4>
+            <ul class="contacts-classic">
+            <li>Office <a href="tel:#">+1 (409) 987–5874</a>
+            </li>
+            <li>Fax <a href="tel:#">+1 (409) 987–5874</a>
+            </li>
+            </ul>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <h4>Address</h4>
+            <div class="contacts-classic"><a href="#">523 Sylvan Ave, 5th Floor <br>Mountain View, CA 94041 USA</a></div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <h4>E-mails</h4>
+            <ul class="contacts-classic">
+            <li><a href="mailTo:#">info@demolink.org</a></li>
+            <li><a href="mailTo:#">mail@demolink.org</a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    </section>
+    <section class="section">
+    <!-- RD Google Map-->
+    <div class="google-map-container" data-zoom="5" data-center="9870 St Vincent Place, Glasgow, DC 45 Fr 45." data-styles="[{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#e9e9e9&quot;},{&quot;lightness&quot;:17}]},{&quot;featureType&quot;:&quot;landscape&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#f5f5f5&quot;},{&quot;lightness&quot;:20}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#ffffff&quot;},{&quot;lightness&quot;:17}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;geometry.stroke&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#ffffff&quot;},{&quot;lightness&quot;:29},{&quot;weight&quot;:0.2}]},{&quot;featureType&quot;:&quot;road.arterial&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#ffffff&quot;},{&quot;lightness&quot;:18}]},{&quot;featureType&quot;:&quot;road.local&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#ffffff&quot;},{&quot;lightness&quot;:16}]},{&quot;featureType&quot;:&quot;poi&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#f5f5f5&quot;},{&quot;lightness&quot;:21}]},{&quot;featureType&quot;:&quot;poi.park&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#dedede&quot;},{&quot;lightness&quot;:21}]},{&quot;elementType&quot;:&quot;labels.text.stroke&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;on&quot;},{&quot;color&quot;:&quot;#ffffff&quot;},{&quot;lightness&quot;:16}]},{&quot;elementType&quot;:&quot;labels.text.fill&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:36},{&quot;color&quot;:&quot;#333333&quot;},{&quot;lightness&quot;:40}]},{&quot;elementType&quot;:&quot;labels.icon&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;transit&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#f2f2f2&quot;},{&quot;lightness&quot;:19}]},{&quot;featureType&quot;:&quot;administrative&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#fefefe&quot;},{&quot;lightness&quot;:20}]},{&quot;featureType&quot;:&quot;administrative&quot;,&quot;elementType&quot;:&quot;geometry.stroke&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#fefefe&quot;},{&quot;lightness&quot;:17},{&quot;weight&quot;:1.2}]}]">
+        <div class="google-map"></div>
+        <ul class="google-map-markers">
+        <li data-location="9870 St Vincent Place, Glasgow, DC 45 Fr 45." data-description="9870 St Vincent Place, Glasgow" data-icon="images/gmap_marker.png" data-icon-active="images/gmap_marker_active.png"></li>
+        </ul>
+    </div>
+    </section>
 @endsection

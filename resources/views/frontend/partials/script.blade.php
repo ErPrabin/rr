@@ -1,27 +1,4 @@
-<script src="{{ asset('frontend/js/jquery.js') }}"></script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-
-<script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
-<script>
-    var verifyCallback = function(response) {
-        alert('Verify re-captcha');
-    };
-};
-</script>
-<script>
-    $('.links a').on('click', function(e) {
-
-        // Define variable of the clicked »a« element (»this«) and get its href value.
-        var href = $(this).attr('href');
-
-        // Run a scroll animation to the position of the element which has the same id like the href value.
-        $('html, body').animate({
-            scrollTop: $(href).offset().top - 160
-        }, 1000);
-
-        // Prevent the browser from showing the attribute name of the clicked link in the address bar
-        e.preventDefault();
-
-    });
-</script>
+<div class="snackbars" id="form-output-global"></div>
+        <script src="js/core.min.js"></script>
+        <script src="js/script.js"></script>
+        <!-- Google Tag Manager --><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P9FT69');</script><!-- End Google Tag Manager -->

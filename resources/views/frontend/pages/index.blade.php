@@ -10,5 +10,24 @@
     ])
 @endsection --}}
 @section('content')
-    <h1>This is home page</h1>
+    <!-- Banner -->
+    @include('frontend.partials.master-header')
+    
+    @include('frontend.partials.home-banner')
+
+    @include('frontend.partials.services')
+
+    @include('frontend.partials.todays-special')
+
+    @include('frontend.partials.featured')
+
+    @include('frontend.partials.what-people-say')
+
+    @include('frontend.partials.index-gallery')
+
+    @include('frontend.partials.our-team')
+
+    @include('frontend.partials.blog-post')
+
+    @include('frontend.partials.slogan')
 @endsection
