@@ -12,7 +12,7 @@
 @section('content')
     @include('frontend.partials.header')
 
-    @include('frontend.partials.breadcrumb')
+    @include('frontend.partials.breadcrumb',['title1' => 'About Us',])
 
     <!-- Section About-->
     <section class="section section-xl bg-default text-md-start">

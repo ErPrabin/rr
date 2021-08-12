@@ -2,7 +2,7 @@
 @section('content')
     @include('frontend.partials.header')
 
-    @include('frontend.partials.breadcrumb')
+    @include('frontend.partials.breadcrumb',['title1' => 'Checkout',])
     
     <!-- Section checkout form-->
     <section class="section section-sm section-first bg-default text-md-start">
