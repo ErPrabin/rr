@@ -50,50 +50,57 @@
             </div>
             <!-- RD Navbar Basket-->
             <div class="rd-navbar-basket-wrap">
-            <button class="rd-navbar-basket fl-bigmug-line-shopping202" data-rd-navbar-toggle=".cart-inline"><span>2</span></button>
-            <div class="cart-inline">
-                <div class="cart-inline-header">
-                <h5 class="cart-inline-title">In cart:<span> 2</span> Products</h5>
-                <h6 class="cart-inline-title">Total price:<span> $44</span></h6>
-                </div>
-                <div class="cart-inline-body">
-                <div class="cart-inline-item">
-                    <div class="unit unit-spacing-sm align-items-center">
-                    <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/product-mini-1-106x104.jpg" alt="" width="106" height="104"/></a></div>
-                    <div class="unit-body">
-                        <h6 class="cart-inline-name"><a href="single-product.html">Forest Berry</a></h6>
-                        <div>
-                        <div class="group-xs group-middle">
-                            <div class="table-cart-stepper">
-                            <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000"/>
+                <button class="rd-navbar-basket fl-bigmug-line-shopping202" data-rd-navbar-toggle=".cart-inline"><span>2</span></button>
+                <div class="cart-inline">
+                    <div class="cart-inline-header">
+                        <h5 class="cart-inline-title">In cart:<span> 2</span> Products</h5>
+                        <h6 class="cart-inline-title">Total price:<span> $44</span></h6>
+                    </div>
+                    <div class="cart-inline-body">
+                        <div class="cart-inline-item">
+                            <div class="unit unit-spacing-sm align-items-center">
+                            <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/product-mini-1-106x104.jpg" alt="" width="106" height="104"/></a></div>
+                            <div class="unit-body">
+                                <h6 class="cart-inline-name"><a href="single-product.html">Forest Berry</a></h6>
+                                <div>
+                                <div class="group-xs group-middle">
+                                    <div class="table-cart-stepper">
+                                    <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000"/>
+                                    </div>
+                                    <h6 class="cart-inline-title">$18.00</h6>
+                                </div>
+                                </div>
                             </div>
-                            <h6 class="cart-inline-title">$18.00</h6>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="cart-inline-item">
-                    <div class="unit unit-spacing-sm align-items-center">
-                    <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/product-mini-2-106x104.jpg" alt="" width="106" height="104"/></a></div>
-                    <div class="unit-body">
-                        <h6 class="cart-inline-name"><a href="single-product.html">Tomatoes</a></h6>
-                        <div>
-                        <div class="group-xs group-middle">
-                            <div class="table-cart-stepper">
-                            <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000"/>
                             </div>
-                            <h6 class="cart-inline-title">$16.00</h6>
                         </div>
+                        <div class="cart-inline-item">
+                            <div class="unit unit-spacing-sm align-items-center">
+                            <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/product-mini-2-106x104.jpg" alt="" width="106" height="104"/></a></div>
+                            <div class="unit-body">
+                                <h6 class="cart-inline-name"><a href="single-product.html">Tomatoes</a></h6>
+                                <div>
+                                <div class="group-xs group-middle">
+                                    <div class="table-cart-stepper">
+                                    <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000"/>
+                                    </div>
+                                    <h6 class="cart-inline-title">$16.00</h6>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="cart-inline-footer">
+                        <div class="group-sm">
+                            <a class="button button-default-outline-2 button-zakaria" href="{{ route('cart') }}">
+                                Go to cart
+                            </a>
+                            <a class="button button-primary button-zakaria" href="checkout.html">
+                                Checkout
+                            </a>
+                        </div>
                     </div>
                 </div>
-                </div>
-                <div class="cart-inline-footer">
-                <div class="group-sm"><a class="button button-default-outline-2 button-zakaria" href="cart-page.html">Go to cart</a><a class="button button-primary button-zakaria" href="checkout.html">Checkout</a></div>
-                </div>
-            </div>
             </div>
             <div class="rd-navbar-fixed-element-2 select-inline">
             <select data-dropdown-class="select-inline-dropdown">
