@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
         if (!User::where('email', 'test@gmail.com')->first()) {
             User::create([
                 'name' => config('app.name'),
+                'role' => 'admin',
                 'phone_number' => '1234567890',
                 'email' => 'test@gmail.com',
                 'password' => bcrypt('test1234')
