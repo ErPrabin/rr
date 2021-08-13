@@ -1,15 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Coupon;
 use Illuminate\Database\Eloquent\Model;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class Coupon extends Model
 {
-
-    
     public static function findByCode($code)
     {
         return self::where('code', $code)->first();
@@ -19,19 +16,11 @@ class Coupon extends Model
 
     public function discount($total)
     {
-
-        if($this->type =='fixed')
-        {
+        if ($this->type =='fixed') {
             return $this->value*Cart::count();
-        }
-
-        elseif($this->type == 'percent')
-        {
+        } elseif ($this->type == 'percent') {
             return round(($this->percent_off/ 100)* $total);
-        }
-        
-        else
-        {
+        } else {
             return 0;
         }
     }

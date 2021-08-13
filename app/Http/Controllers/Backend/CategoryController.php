@@ -19,4 +19,3 @@ class CategoryController extends Controller
         $this->c = app()->make(Category::class);
     }
 }
-

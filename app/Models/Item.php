@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Menu;
 
@@ -11,9 +11,9 @@ use Laravel\Scout\Searchable;
 
 class Item extends Model
 {
-    use SearchableTrait; //Searchable ; 
+    use SearchableTrait; //Searchable ;
     use SoftDeletes;
-    protected $dates = ['deleted_at']; 
+    protected $dates = ['deleted_at'];
     protected $fillable = ['quantity'];
 
 
@@ -38,13 +38,13 @@ class Item extends Model
         
             // 'posts.title' => 2, tala ko join ley kam gareko cha vane chaincha
             // 'posts.body' => 1,
-        ],  
+        ],
         // 'joins' => [   relation ship ko through search garne vaye tara aile hamro case ma chaidaina
         //     'posts' => ['users.id','posts.user_id'],
         // ],
     ];
 
-    // ya samma 
+    // ya samma
 
 
     public function Menus()

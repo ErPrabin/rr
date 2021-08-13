@@ -13,13 +13,12 @@ class Menu extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('menus')) 
-        {
-            Schema::create('menus', function (Blueprint $table) 
-            {
+        if (!Schema::hasTable('menus')) {
+            Schema::create('menus', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->string('name')->unique();
-                $table->string('image');
+                $table->string('image')->nullable();
+                $table->integer('sort')->default(1);
                 $table->timestamps();
                 $table->softDeletes();
             });
