@@ -13,14 +13,15 @@ class Item extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('items')) 
-        {
-            Schema::create('items', function (Blueprint $table) 
-            {
+        if (!Schema::hasTable('items')) {
+            Schema::create('items', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->string('name')->unique();
                 $table->integer('price');
+                $table->text('description')->nullable();
                 $table->unsignedBigInteger('menus_id')->index();
+                $table->string('delivery_time');
+                $table->foreign('menus_id')->references('id')->on('menus')->onDelete('cascade');
                 $table->string('image');
                 $table->timestamps();
                 $table->softDeletes();
