@@ -102,12 +102,30 @@
                 </div>
             </div>
             </div>
-            <div class="rd-navbar-fixed-element-2 select-inline">
-                <a href="{{ route('login') }}">Login</a>
-            </div>
-            <div class="rd-navbar-fixed-element-2 select-inline">
-                <a href="{{ route('register') }}">Register</a>
-            </div>
+            @guest
+                <div class="rd-navbar-fixed-element-2 select-inline">
+                    <a href="{{ route('login') }}">Login</a>
+                </div>
+                <div class="rd-navbar-fixed-element-2 select-inline">
+                    <a href="{{ route('register') }}">Register</a>
+                </div>
+            @endguest
+            @auth
+                <div class="rd-navbar-fixed-element-2 select-inline">
+                    <form  method="POST" action="{{ route('logout') }}">
+                        @csrf
+                            <x-jet-dropdown-link href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                            {{ __('LogOut') }}
+                        </x-jet-dropdown-link>
+                    </form>
+                </div>
+                <div class="rd-navbar-fixed-element-2 select-inline">
+                    <a href="">Dashboard</a>
+                </div>
+            @endauth
+
         </div>
         </div>
     </div>
