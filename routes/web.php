@@ -24,7 +24,7 @@ Route::group([
 ], function () {
     Route::get('admin', function () {
         return view('backend.welcome');
-    });
+    })->name('admin');
     foreach (config('menu.menu') as $menu) {
         Route::resource($menu['slug'], str_replace(' ', '', ucwords(str_replace("-", " ", $menu['slug']) . 'Controller')));
     }

@@ -4,8 +4,8 @@ use Illuminate\Support\Str;
 
 return [
     'menu' => [
-        ['name' => 'Food', 'slug' => 'food'],
-        ['name' => 'Category', 'slug' => 'category'],
+        ['name' => 'Menu', 'slug' => 'menu'],
+        ['name' => 'Item', 'slug' => 'item'],
         ['name' => 'Today Special', 'slug' => 'today-special'],
         // ['name' => 'Order', 'slug' => 'order'],
     ]
