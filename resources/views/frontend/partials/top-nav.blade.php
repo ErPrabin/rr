@@ -95,7 +95,7 @@
                         <a class="button button-default-outline-2 button-zakaria" href="{{ route('cart') }}">
                             Go to cart
                         </a>
-                        <a class="button button-primary button-zakaria" href="checkout.html">
+                        <a class="button button-primary button-zakaria" href="{{ route('checkout') }}">
                             Checkout
                         </a>
                     </div>
