@@ -23,6 +23,7 @@ class Item extends Migration
                 $table->string('delivery_time');
                 $table->foreign('menus_id')->references('id')->on('menus')->onDelete('cascade');
                 $table->string('image');
+                $table->integer('sort')->default(1);
                 $table->timestamps();
                 $table->softDeletes();
             });

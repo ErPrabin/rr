@@ -19,19 +19,19 @@ class ItemController extends Controller
     {
         $this->module = 'item';
         $this->c = app()->make(Item::class);
-        $this->middleware('admin', ['except'=>['index','search','show']]);
+        // $this->middleware('admin', ['except'=>['index','search','show']]);
     }
     public function create()
     {
-        $category = Menu::get();
-        return view('backend.pages.' . $this->module . '.create', compact('category'))->withpage($this->module);
+        $menus = Menu::get();
+        return view('backend.pages.' . $this->module . '.create', compact('menus'))->withpage($this->module);
     }
     public function edit($id)
     {
         $data = $this->c::findOrFail($id);
-        $category = Menu::get();
+        $menus = Menu::get();
 
-        return view('backend.pages.' . $this->module . '.edit', compact('data', 'category'))->withPage($this->module);
+        return view('backend.pages.' . $this->module . '.edit', compact('data', 'menus'))->withPage($this->module);
     }
 
     public function search(Request $request)

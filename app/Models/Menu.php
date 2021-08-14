@@ -15,7 +15,7 @@ class Menu extends Model
     //protected $table=foodmenus;
     protected $fillable = ['name', 'sort'];
 
-    public function Item()
+    public function items()
     {
         return $this->hasMany(Item::class, 'menus_id');
     }

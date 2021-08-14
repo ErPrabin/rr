@@ -26,11 +26,14 @@
                                     <input type="text" class="form-control" id="delivery_time" name="delivery_time"
                                         required>
                                 </div>
-                                <select name="category_id" id="category">
-                                    @foreach ($category as $data)
-                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
-                                    @endforeach
-                                </select>
+                                
+                                    <select name="menus_id" id="menus">
+                                        <option disabled selected>Select a Menu</option>
+                                        @foreach ($menus as $data)
+                                            <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                        @endforeach
+                                    </select>
+
                                 <div class="form-group">
                                     <label for="name">Description </label>
                                     <textarea  class="form-control" id="editor" name="description"></textarea>
@@ -40,8 +43,7 @@
                                     <label for="exampleInputFile">Image </label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="image" id="exampleInputFile"
-                                                >
+                                            <input type="file" class="custom-file-input" name="image" id="exampleInputFile">
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                         </div>
                                         <div class="input-group-append">

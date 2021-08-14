@@ -14,7 +14,7 @@ class Item extends Model
     use SearchableTrait; //Searchable ;
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-    protected $fillable = ['quantity'];
+    protected $fillable =  ['name', 'price', 'description', 'image', 'menus_id', 'sort','delivery_time'];
 
 
 
@@ -47,7 +47,7 @@ class Item extends Model
     // ya samma
 
 
-    public function Menus()
+    public function menu()
     {
         return $this->belongsTo(Menu::class);
     }

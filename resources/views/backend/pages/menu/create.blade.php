@@ -19,8 +19,17 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="body">Image</label>
-                                    <input type="file" name='image' id='image'>
+                                    <label for="exampleInputFile">Image </label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="image" id="exampleInputFile"
+                                                >
+                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="">Upload</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="sort">Sort </label>
