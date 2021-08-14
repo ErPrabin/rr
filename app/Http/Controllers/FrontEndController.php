@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -38,5 +39,11 @@ class FrontEndController extends Controller
     public function privacy()
     {
         return view('frontend.pages.privacy-policy');
+    }
+
+    public function menu()
+    {
+        $menus = Menu::get();
+        return view('frontend.pages.menu', compact('menus'));
     }
 }

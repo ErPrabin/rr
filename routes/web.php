@@ -39,6 +39,7 @@ Route::get('/terms-and-conditions', [FrontEndController::class,'terms'])->name('
 Route::get('/privacy-policy', [FrontEndController::class,'privacy'])->name('privacy');
 Route::get('/checkout', [FrontEndController::class,'checkout'])->name('checkout');
 Route::get('/gallery', [FrontEndController::class,'gallery'])->name('gallery');
+Route::get('/menu', [FrontEndController::class,'menu'])->name('menu');
 
 
 
