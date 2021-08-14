@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 
@@ -50,6 +51,11 @@ class FrontEndController extends Controller
     public function itemByMenu($id)
     {
         $items = Menu::find($id)->items;
+        return view('frontend.pages.item', compact('itemByMenu'));
+    }
+    public function allItems()
+    {
+        $items = Item::all();
         return view('frontend.pages.item', compact('items'));
     }
 }

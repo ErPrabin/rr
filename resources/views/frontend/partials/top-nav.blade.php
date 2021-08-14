@@ -141,6 +141,8 @@
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('menu') }}">Menu</a>
                 </li>
+                <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('allItems') }}">Items</a>
+                </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('gallery') }}">Gallery</a>
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="grid-shop.html">Shop</a>
