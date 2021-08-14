@@ -2,7 +2,7 @@
 @section('content')
     @include('frontend.partials.header')
 
-    @include('frontend.partials.breadcrumb',['title1' => 'Menu',])
+    @include('frontend.partials.breadcrumb',['title1' => 'Item',])
 
     <!-- Section Shop-->
     <section class="section section-xxl bg-default text-md-start">
@@ -12,28 +12,28 @@
                 <div class="aside row row-30 row-md-50 justify-content-md-between">
                     <div class="aside-item col-sm-6 col-md-5 col-lg-12">
                     <h6 class="aside-title">Categories</h6>
-                    <ul class="list-shop-filter">
-                        <li>
-                        <label class="checkbox-inline">
-                            <input name="input-group-radio" value="checkbox-1" type="checkbox">All
-                        </label><span class="list-shop-filter-number">(18)</span>
-                        </li>
-                        <li>
-                        <label class="checkbox-inline">
-                            <input name="input-group-radio" value="checkbox-2" type="checkbox">Drinks
-                        </label><span class="list-shop-filter-number">(9)</span>
-                        </li>
-                        <li>
-                        <label class="checkbox-inline">
-                            <input name="input-group-radio" value="checkbox-3" type="checkbox">Vegetables
-                        </label><span class="list-shop-filter-number">(5)</span>
-                        </li>
-                        <li>
-                        <label class="checkbox-inline">
-                            <input name="input-group-radio" value="checkbox-4" type="checkbox">Exotic
-                        </label><span class="list-shop-filter-number">(8)</span>
-                        </li>
-                    </ul>
+                        <ul class="list-shop-filter">
+                            <li>
+                            <label class="checkbox-inline">
+                                <input name="input-group-radio" value="checkbox-1" type="checkbox">All
+                            </label><span class="list-shop-filter-number">(18)</span>
+                            </li>
+                            <li>
+                            <label class="checkbox-inline">
+                                <input name="input-group-radio" value="checkbox-2" type="checkbox">Drinks
+                            </label><span class="list-shop-filter-number">(9)</span>
+                            </li>
+                            <li>
+                            <label class="checkbox-inline">
+                                <input name="input-group-radio" value="checkbox-3" type="checkbox">Vegetables
+                            </label><span class="list-shop-filter-number">(5)</span>
+                            </li>
+                            <li>
+                            <label class="checkbox-inline">
+                                <input name="input-group-radio" value="checkbox-4" type="checkbox">Exotic
+                            </label><span class="list-shop-filter-number">(8)</span>
+                            </li>
+                        </ul>
                     <!-- RD Search Form-->
                     <form class="rd-search form-search" action="search-results.html" method="GET">
                         <div class="form-wrap">
@@ -109,7 +109,7 @@
                         <div class="product-body">
                         <div class="product-figure"><img src="images/product-1-196x134.png" alt="" width="196" height="134"/>
                         </div>
-                        <h5 class="product-title"><a {{-- href="{{ route('itemByMenu',$menu->id) }}" --}}>Carrots</a></h5>
+                        <h5 class="product-title"><a href="single-product.html">Carrots</a></h5>
                         <div class="product-price-wrap">
                             <div class="product-price product-price-old">$30.00</div>
                             <div class="product-price">$23.00</div>
@@ -127,7 +127,7 @@
                         <div class="product-body">
                         <div class="product-figure"><img src="images/product-2-155x145.png" alt="" width="155" height="145"/>
                         </div>
-                        <h5 class="product-title"><a {{-- href="{{ route('itemByMenu',$menu->id) }}" --}}>Sparkling drinks</a></h5>
+                        <h5 class="product-title"><a href="single-product.html">Sparkling drinks</a></h5>
                         <div class="product-price-wrap">
                             <div class="product-price">$13.00</div>
                         </div>
@@ -144,7 +144,7 @@
                         <div class="product-body">
                         <div class="product-figure"><img src="images/product-3-180x154.png" alt="" width="180" height="154"/>
                         </div>
-                        <h5 class="product-title"><a {{-- href="{{ route('itemByMenu',$menu->id) }}" --}}>Tomatoes</a></h5>
+                        <h5 class="product-title"><a href="single-product.html">Tomatoes</a></h5>
                         <div class="product-price-wrap">
                             <div class="product-price">$16.99</div>
                         </div>
@@ -161,7 +161,7 @@
                         <div class="product-body">
                         <div class="product-figure"><img src="images/product-5-169x159.png" alt="" width="169" height="159"/>
                         </div>
-                        <h5 class="product-title"><a {{-- href="{{ route('itemByMenu',$menu->id) }}" --}}>Beet Roots</a></h5>
+                        <h5 class="product-title"><a href="single-product.html">Beet Roots</a></h5>
                         <div class="product-price-wrap">
                             <div class="product-price">$13.00</div>
                         </div>
@@ -178,7 +178,7 @@
                         <div class="product-body">
                         <div class="product-figure"><img src="images/product-6-89x164.png" alt="" width="89" height="164"/>
                         </div>
-                        <h5 class="product-title"><a {{-- href="{{ route('itemByMenu',$menu->id) }}" --}}>Olives</a></h5>
+                        <h5 class="product-title"><a href="single-product.html">Olives</a></h5>
                         <div class="product-price-wrap">
                             <div class="product-price">$16.99</div>
                         </div>
@@ -195,7 +195,7 @@
                         <div class="product-body">
                         <div class="product-figure"><img src="images/product-7-89x157.png" alt="" width="89" height="157"/>
                         </div>
-                        <h5 class="product-title"><a {{-- href="{{ route('itemByMenu',$menu->id) }}" --}}>Coffee</a></h5>
+                        <h5 class="product-title"><a href="single-product.html">Coffee</a></h5>
                         <div class="product-price-wrap">
                             <div class="product-price product-price-old">$30.00</div>
                             <div class="product-price">$23.00</div>
@@ -213,7 +213,7 @@
                         <div class="product-body">
                         <div class="product-figure"><img src="images/product-4-222x153.png" alt="" width="222" height="153"/>
                         </div>
-                        <h5 class="product-title"><a {{-- href="{{ route('itemByMenu',$menu->id) }}" --}}>Persimmon</a></h5>
+                        <h5 class="product-title"><a href="single-product.html">Persimmon</a></h5>
                         <div class="product-price-wrap">
                             <div class="product-price">$13.00</div>
                         </div>
@@ -230,7 +230,7 @@
                         <div class="product-body">
                         <div class="product-figure"><img src="images/product-8-145x136.png" alt="" width="145" height="136"/>
                         </div>
-                        <h5 class="product-title"><a {{-- href="{{ route('itemByMenu',$menu->id) }}" --}}>Melon</a></h5>
+                        <h5 class="product-title"><a href="single-product.html">Melon</a></h5>
                         <div class="product-price-wrap">
                             <div class="product-price">$16.99</div>
                         </div>
@@ -247,7 +247,7 @@
                         <div class="product-body">
                         <div class="product-figure"><img src="images/product-9-189x166.png" alt="" width="189" height="166"/>
                         </div>
-                        <h5 class="product-title"><a {{-- href="{{ route('itemByMenu',$menu->id) }}" --}}>Raspberry</a></h5>
+                        <h5 class="product-title"><a href="single-product.html">Raspberry</a></h5>
                         <div class="product-price-wrap">
                             <div class="product-price">$16.99</div>
                         </div>

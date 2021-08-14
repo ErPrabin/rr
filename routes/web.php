@@ -21,6 +21,7 @@ use App\Http\Controllers\FrontEndController;
 Route::group([
     'namespace' => 'Backend',
     'middleware' => ['auth'],
+    'prefix' => 'admin'
 ], function () {
     Route::get('admin', function () {
         return view('backend.welcome');
@@ -40,6 +41,7 @@ Route::get('/privacy-policy', [FrontEndController::class,'privacy'])->name('priv
 Route::get('/checkout', [FrontEndController::class,'checkout'])->name('checkout');
 Route::get('/gallery', [FrontEndController::class,'gallery'])->name('gallery');
 Route::get('/menu', [FrontEndController::class,'menu'])->name('menu');
+Route::get('/item/{id}', [FrontEndController::class,'itemByMenu'])->name('itemByMenu');
 
 
 

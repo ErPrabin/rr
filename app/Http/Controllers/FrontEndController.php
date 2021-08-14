@@ -46,4 +46,10 @@ class FrontEndController extends Controller
         $menus = Menu::get();
         return view('frontend.pages.menu', compact('menus'));
     }
+
+    public function itemByMenu($id)
+    {
+        $items = Menu::find($id)->items;
+        return view('frontend.pages.item', compact('items'));
+    }
 }
