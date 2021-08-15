@@ -7,7 +7,7 @@
                 <!-- Owl Carousel-->
                 <div class="owl-carousel owl-style-5" data-items="1" data-margin="30" data-dots="true" data-autoplay="true">
                     <article class="product-creative">
-                    <div class="product-figure"><img src="images/product-big-1-470x324.png" alt="" width="470" height="324"/>
+                    <div class="product-figure"><img src="{{ asset('images/product-big-1-470x324.png') }}" alt="" width="470" height="324"/>
                     </div>
                     <h4 class="product-creative-title"><a href="single-product.html">Beet Roots</a></h4>
                     <div class="product-creative-price-wrap">
@@ -16,7 +16,7 @@
                     </div>
                     </article>
                     <article class="product-creative">
-                    <div class="product-figure"><img src="images/product-big-2-470x324.png" alt="" width="470" height="324"/>
+                    <div class="product-figure"><img src="{{ asset('images/product-big-2-470x324.png') }}" alt="" width="470" height="324"/>
                     </div>
                     <h4 class="product-creative-title"><a href="single-product.html">Sparkling drinks</a></h4>
                     <div class="product-creative-price-wrap">

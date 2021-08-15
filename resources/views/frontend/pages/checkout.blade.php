@@ -128,7 +128,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><a class="table-cart-figure" href="single-product.html"><img src="images/product-mini-4-146x132.png" alt="" width="146" height="132"/></a><a class="table-cart-link" href="single-product.html">Forest Berry</a></td>
+                  <td><a class="table-cart-figure" href="single-product.html"><img src="{{ asset('images/product-mini-4-146x132.png') }}" alt="" width="146" height="132"/></a><a class="table-cart-link" href="single-product.html">Forest Berry</a></td>
                   <td>$18.00</td>
                   <td>
                     <div class="table-cart-stepper">

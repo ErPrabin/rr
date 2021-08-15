@@ -32,7 +32,7 @@
             <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
             <!-- RD Navbar Brand-->
             <div class="rd-navbar-brand">
-            <!--Brand--><a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo-default-234x82.png" alt="" width="117" height="41"/><img class="brand-logo-light" src="images/logo-inverse-234x82.png" alt="" width="117" height="41"/></a>
+            <!--Brand--><a class="brand" href="index.html"><img class="brand-logo-dark" src="{{ asset('images/logo-default-234x82.png') }}" alt="" width="117" height="41"/><img class="brand-logo-light" src="{{ asset('images/logo-inverse-234x82.png') }}" alt="" width="117" height="41"/></a>
             </div>
         </div>
         <div class="rd-navbar-aside-element">
@@ -59,7 +59,7 @@
                 <div class="cart-inline-body">
                     <div class="cart-inline-item">
                         <div class="unit unit-spacing-sm align-items-center">
-                        <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/product-mini-1-106x104.jpg" alt="" width="106" height="104"/></a></div>
+                        <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="{{ asset('images/product-mini-1-106x104.jpg') }}" alt="" width="106" height="104"/></a></div>
                         <div class="unit-body">
                             <h6 class="cart-inline-name"><a href="single-product.html">Forest Berry</a></h6>
                             <div>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="cart-inline-item">
                         <div class="unit unit-spacing-sm align-items-center">
-                        <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/product-mini-2-106x104.jpg" alt="" width="106" height="104"/></a></div>
+                        <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="{{ asset('images/product-mini-2-106x104.jpg') }}" alt="" width="106" height="104"/></a></div>
                         <div class="unit-body">
                             <h6 class="cart-inline-name"><a href="single-product.html">Tomatoes</a></h6>
                             <div>
