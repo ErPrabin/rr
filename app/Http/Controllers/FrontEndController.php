@@ -51,11 +51,17 @@ class FrontEndController extends Controller
     public function itemByMenu($id)
     {
         $items = Menu::find($id)->items;
-        return view('frontend.pages.item', compact('itemByMenu'));
+        // dd($items);
+        return view('frontend.pages.item', compact('items'));
     }
     public function allItems()
     {
         $items = Item::all();
         return view('frontend.pages.item', compact('items'));
+    }
+    public function singleItem($id)
+    {
+        $item = Item::find($id);
+        return view('frontend.pages.item', compact('item'));
     }
 }
