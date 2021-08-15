@@ -20,10 +20,10 @@ use App\Http\Controllers\FrontEndController;
 
 Route::group([
     'namespace' => 'Backend',
-    'middleware' => ['auth'],
+    'middleware' => ['auth','admin'],
     'prefix' => 'admin'
 ], function () {
-    Route::get('admin', function () {
+    Route::get('/', function () {
         return view('backend.welcome');
     })->name('admin');
     foreach (config('menu.menu') as $menu) {
