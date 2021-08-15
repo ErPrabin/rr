@@ -32,7 +32,7 @@
                                         <tr>
                                             <td>{{ $d->name }}</td>
                                             <td>{{ $d->price }}</td>
-                                            <td>{{ $d->category->name }}</td>
+                                            <td>{{ $d->menu->name }}</td>
                                             <td>{!! $d->description !!}</td>
                                             <td>{{ $d->delivery_time }}</td>
                                             <td>

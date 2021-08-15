@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Menu;
-
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -49,6 +47,6 @@ class Item extends Model
 
     public function menu()
     {
-        return $this->belongsTo(Menu::class);
+        return $this->belongsTo(Menu::class, 'menus_id', 'id');
     }
 }

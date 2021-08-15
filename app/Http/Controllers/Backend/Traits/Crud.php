@@ -26,7 +26,7 @@ trait Crud
         return view('backend.pages.' . $this->module . '.edit', compact('data'))->withPage($this->module);
     }
 
-    public  function store(Request $request)
+    public function store(Request $request)
     {
         $data = $request->except('_token', '_method');
         foreach ($data as $key => $d) {
