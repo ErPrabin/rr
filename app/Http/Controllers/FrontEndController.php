@@ -62,6 +62,7 @@ class FrontEndController extends Controller
     public function singleItem($id)
     {
         $item = Item::find($id);
-        return view('frontend.pages.item', compact('item'));
+        // dd($item);
+        return view('frontend.pages.singleItem', compact('item'));
     }
 }

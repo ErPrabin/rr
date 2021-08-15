@@ -43,7 +43,7 @@ Route::get('/gallery', [FrontEndController::class,'gallery'])->name('gallery');
 Route::get('/menu', [FrontEndController::class,'menu'])->name('menu');
 Route::get('/item/{id}', [FrontEndController::class,'itemByMenu'])->name('itemByMenu');
 Route::get('/all-items', [FrontEndController::class,'allItems'])->name('allItems');
-Route::get('/single-item/{id}', [FrontEndController::class,'singleItem'])->name('singleItem');
+Route::get('/single-item/{id}', [FrontEndController::class,'singleItem'])->name('singleItem')->whereNumber('id');
 
 
 

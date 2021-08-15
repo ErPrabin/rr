@@ -117,7 +117,7 @@
                                 </div>
                                 </div><span class="product-badge product-badge-sale">Sale</span>
                                 <div class="product-button-wrap">
-                                <div class="product-button"><a class="button button-secondary button-zakaria fl-bigmug-line-search74" href="{{ route('singleItem',$item->id) }}"></a></div>
+                                <div class="product-button"><a class="button button-secondary button-zakaria fl-bigmug-line-search74" href="{{ route('singleItem',['id' => $item->id]) }}"></a></div>
                                 <div class="product-button"><a class="button button-primary button-zakaria fl-bigmug-line-shopping202" href="cart-page.html"></a></div>
                                 </div>
                             </article>
