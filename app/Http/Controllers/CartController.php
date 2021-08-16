@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use auth;
-use App\Item;
+use Auth;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use App\Http\Controllers\CheckoutController;
+
+// use App\Http\Controllers\CheckoutController;
 
 class CartController extends Controller
 {
@@ -23,7 +24,7 @@ class CartController extends Controller
             'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
             'newTax' => $this->getNumbers()->get('newTax'),
             'newTotal' => $this->getNumbers()->get('newTotal'),
-       ]);
+        ]);
     }
 
     /**
@@ -50,6 +51,7 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->id);
         $duplicates= Cart::search(function ($cartItem, $rowId) use ($request) {
             return $cartItem->id === $request->id;
         });
@@ -58,7 +60,7 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('alreadyincart', 'Item is already in your cart');
         }
 
-        Cart::add(['id'=>$request->id,'name'=> $request->name,'qty'=> 2, 'price' =>$request->price,'weight' => 1,'options'=>['image' =>$request->image, 'users_id' => auth()->user()->id ] ])->associate('App\Item');
+        Cart::add(['id'=>$request->id,'name'=> $request->name,'qty'=> 1, 'price' =>$request->price,'weight' => 1,'options'=>['image' =>$request->image ] ])->associate('App\Models\Item');
         //Cart::store(auth()->user()->id);
         return redirect()->route('cart.index')->with('success', 'Cart added successfully');
     }
