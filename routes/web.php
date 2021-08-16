@@ -34,7 +34,6 @@ Route::group([
 
 //santoshi
 Route::get('/', [FrontEndController::class,'index'])->name('home');
-Route::get('/cart', [FrontEndController::class,'cart'])->name('cart');
 Route::get('/contact-us', [FrontEndController::class,'contact'])->name('contact');
 Route::get('/about-us', [FrontEndController::class,'about'])->name('about');
 Route::get('/terms-and-conditions', [FrontEndController::class,'terms'])->name('terms');
@@ -68,30 +67,20 @@ Route::get('/single-item/{id}', [FrontEndController::class,'singleItem'])->name(
 
 // Route::get('/profile', 'UserController@profile')->name('profile');
 
-// //  ------------------------
-// //  ROUTE FOR MENUS
-// //  ------------------------
 
+//  ------------------------
+//  ROUTE FOR ITEMS
+//  ------------------------
 
-// Route::resource('menu', 'MenuController');
-
-
-// //  ------------------------
-// //  ROUTE FOR ITEMS
-// //  ------------------------
-
-
-// Route::resource('item', 'ItemController');
 
 // Route::get('/search', 'ItemController@search')->name('item.search');
-// //Route::get('/cart','ItemController@addToCart')->name('addToCart');
 
 
-// //  ------------------------
-// //  ROUTE FOR CART
-// //  ------------------------
+//  ------------------------
+//  ROUTE FOR CART
+//  ------------------------
 
-// Route::resource('cart', 'CartController');
+Route::resource('cart', 'CartController');
 
 // Route::post('/cart/switchToSaveForLater/{id}', 'CartController@switchToSaveForLater')->name('cart.To.saveForLater');
 

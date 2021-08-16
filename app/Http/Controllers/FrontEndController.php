@@ -12,10 +12,6 @@ class FrontEndController extends Controller
     {
         return view('frontend.pages.index');
     }
-    public function cart()
-    {
-        return view('frontend.pages.cart');
-    }
     public function contact()
     {
         return view('frontend.pages.contact');

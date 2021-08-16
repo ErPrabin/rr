@@ -92,7 +92,7 @@
                 </div>
                 <div class="cart-inline-footer">
                     <div class="group-sm">
-                        <a class="button button-default-outline-2 button-zakaria" href="{{ route('cart') }}">
+                        <a class="button button-default-outline-2 button-zakaria" href="{{ route('cart.index') }}">
                             Go to cart
                         </a>
                         <a class="button button-primary button-zakaria" href="{{ route('checkout') }}">
@@ -147,7 +147,7 @@
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="grid-shop.html">Shop</a>
                     <ul class="rd-menu rd-navbar-dropdown">
-                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('cart') }}">Cart Page</a>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('cart.index') }}">Cart Page</a>
                         </li>
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('checkout') }}">Checkout</a>
                         </li>

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\CheckoutController;
 
-class CartController extends Controller 
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart.cart')->with([
+        return view('frontend.pages.cart')->with([
             'tax' => $this->getNumbers()->get('tax'),
             'discount' => $this->getNumbers()->get('discount') ,
             'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
@@ -44,26 +44,23 @@ class CartController extends Controller
      */
 
     /** cart ma dui tarika ley rakhna milcha
-    
-    * 1) @param   yo chai item ko food.blade.php bata aayeko request in terms of form ma 
-    */ 
+
+    * 1) @param   yo chai item ko food.blade.php bata aayeko request in terms of form ma
+    */
 
     public function store(Request $request)
     {
-        $duplicates= Cart::search( function ($cartItem, $rowId) use($request)
-        {
+        $duplicates= Cart::search(function ($cartItem, $rowId) use ($request) {
             return $cartItem->id === $request->id;
         });
         //print_r($duplicates);
-        if($duplicates->isNotEmpty())
-        {
-            return redirect()->route('cart.index')->with('alreadyincart','Item is already in your cart');
+        if ($duplicates->isNotEmpty()) {
+            return redirect()->route('cart.index')->with('alreadyincart', 'Item is already in your cart');
         }
 
         Cart::add(['id'=>$request->id,'name'=> $request->name,'qty'=> 2, 'price' =>$request->price,'weight' => 1,'options'=>['image' =>$request->image, 'users_id' => auth()->user()->id ] ])->associate('App\Item');
         //Cart::store(auth()->user()->id);
-        return redirect()->route('cart.index')->with('success','Cart added successfully');
-
+        return redirect()->route('cart.index')->with('success', 'Cart added successfully');
     }
 
 
@@ -90,25 +87,24 @@ class CartController extends Controller
 
 
     /** cart ma dui tarika ley rakhna milcha
-    
-    * 2) @param   yo chai menu ko item.blade.php bata aayeko request in terms of form ma 
-    */ 
+
+    * 2) @param   yo chai menu ko item.blade.php bata aayeko request in terms of form ma
+    */
 
     public function edit($id)
     {
         $item= Item::find($id);
-        $duplicates= Cart::search( function ($cartItem, $rowId) use($id){
+        $duplicates= Cart::search(function ($cartItem, $rowId) use ($id) {
             return $cartItem->id === $id;
         });
         //print_r($duplicates);
-        if($duplicates->isNotEmpty())
-        {
-            return redirect()->route('cart.index')->with('alreadyincart','Item is already in your cart');
+        if ($duplicates->isNotEmpty()) {
+            return redirect()->route('cart.index')->with('alreadyincart', 'Item is already in your cart');
         }
 
         Cart::add(['id' => $id, 'name' => $item->name, 'qty' => 1, 'price' => $item->price, 'weight' => 1, 'options' => ['users_id' => auth()->user()->id,'image'=>$item->image] ])->associate('App\Item');
 
-        return redirect()->route('cart.index')->with('success','Cart added successfully');
+        return redirect()->route('cart.index')->with('success', 'Cart added successfully');
     }
 
     /**
@@ -121,7 +117,7 @@ class CartController extends Controller
     public function update(Request $request, $id)
     {
         Cart::update($id, $request->qty);
-        return redirect()->route('cart.index')->with('success','Cart edited successfully');
+        return redirect()->route('cart.index')->with('success', 'Cart edited successfully');
     }
 
     /**
@@ -133,7 +129,7 @@ class CartController extends Controller
     public function destroy($id)
     {
         Cart::remove($id);
-        return redirect()->route('cart.index')->with('success','Item removed from Cart');
+        return redirect()->route('cart.index')->with('success', 'Item removed from Cart');
     }
 
     /**
@@ -149,29 +145,24 @@ class CartController extends Controller
         
         Cart::remove($id);
 
-       $duplicates= Cart::instance('saveForLater')->search(function ($cartItem, $rowId) use ($id)
-        {
+        $duplicates= Cart::instance('saveForLater')->search(function ($cartItem, $rowId) use ($id) {
             return $rowId === $id;
-            
         });
         //print_r($item->options->image);
     
-        if($duplicates->isNotEmpty())
-        {
-            return redirect()->route('cart.index')->with('alreadyincart','Item is already in your Wishlist');
+        if ($duplicates->isNotEmpty()) {
+            return redirect()->route('cart.index')->with('alreadyincart', 'Item is already in your Wishlist');
         }
 
         Cart::instance('saveForLater')->add(['id'=>$item->id,'name'=> $item->name,'qty' => 1, 'price' =>$item->price,'weight' => 1, 'options'=>['image' =>$item->options->image, 'users_id' => auth()->user()->id ]])->associate('App\Item');
 
         //Cart::store(auth()->user()->id);
 
-        return redirect()->route('cart.index')->with('success','Item added for Save For Later!');
-
+        return redirect()->route('cart.index')->with('success', 'Item added for Save For Later!');
     }
 
     private function getNumbers()
     {
-        
         $tax= config('cart.tax')/100;
         $discount = session()->get('coupon')['discount'] ?? 0;
         $code=session()->get('coupon')['name']?? null;
@@ -189,6 +180,4 @@ class CartController extends Controller
             'newTotal' => $newTotal,
        ]);
     }
-    
-
 }
