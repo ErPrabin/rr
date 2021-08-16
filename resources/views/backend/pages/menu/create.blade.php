@@ -9,7 +9,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ route($page . '.store') }}" method="post"
+                        <form role="form" action="{{ route('admin.'.$page . '.store') }}" method="post"
                             enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="card-body">
@@ -24,9 +24,6 @@
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="image" id="exampleInputFile">
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text" id="">Upload</span>
                                         </div>
                                     </div>
                                 </div>

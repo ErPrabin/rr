@@ -35,7 +35,7 @@ trait Crud
             }
         }
         $this->c->create($data);
-        return redirect($this->module)->with('success_message', 'Successfull Added.');
+        return redirect()->route('admin.' . $this->module . '.index')->with('success_message', 'Successfull Added.');
     }
     public function update(Request $request, $id)
     {
@@ -48,7 +48,7 @@ trait Crud
             }
         }
         $olddata->update($data);
-        return redirect()->route($this->module . '.index')->with('flash_success', 'Updated Successfully');
+        return redirect()->route('admin.' . $this->module . '.index')->with('flash_success', 'Updated Successfully');
     }
     public function destroy($id)
     {
@@ -56,7 +56,7 @@ trait Crud
         $oldfile = $data->image;
         $data->delete();
         $this->removeImage($oldfile);
-        return redirect()->route($this->module . '.index')->with('flash_success', 'Deleted Successfully');
+        return redirect()->route('admin.' . $this->module . '.index')->with('flash_success', 'Deleted Successfully');
     }
     protected function uploadImage(UploadedFile $file, $oldfile = null)
     {

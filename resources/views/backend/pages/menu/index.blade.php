@@ -6,7 +6,7 @@
         <div class="container-fluid">
 
             <div class="addbtn">
-                <a href="{{ route($page . '.create') }}" class="btn btn-primary">Add More</a>
+                <a href="{{ route('admin.'.$page . '.create') }}" class="btn btn-primary">Add More</a>
             </div>
 
             <div class="row">
@@ -28,7 +28,8 @@
                                         <tr>
                                             <td>{{ $d->name }}</td>
                                             <td>
-                                                {{ $d->sort }}
+                                                <img src="{{ asset('images/menu/' . $d->image) }}" alt="null"
+                                                    width="100px">
                                             </td>
                                             <td>
                                                 {{ $d->sort }}

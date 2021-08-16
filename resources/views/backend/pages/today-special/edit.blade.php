@@ -9,7 +9,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ route($page . '.update', $data->id) }}" method="post"
+                        <form role="form" action="{{ route('admin.'.$page . '.update', $data->id) }}" method="post"
                             enctype="multipart/form-data">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}

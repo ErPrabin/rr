@@ -9,7 +9,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ route($page . '.update', $data->id) }}" method="post"
+                        <form role="form" action="{{ route('admin.'.$page . '.update', $data->id) }}" method="post"
                             enctype="multipart/form-data">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
@@ -21,8 +21,13 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="body">Image</label>
-                                    <input type="file" name='image' id='image'>
+                                    <label for="exampleInputFile">Image </label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="image" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        </div>
+                                    </div>
                                 </div>
                                 
                                 <div class="form-group">

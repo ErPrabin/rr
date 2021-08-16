@@ -21,7 +21,8 @@ use App\Http\Controllers\FrontEndController;
 Route::group([
     'namespace' => 'Backend',
     'middleware' => ['auth','admin'],
-    'prefix' => 'admin'
+    'prefix' => 'admin',
+    'as' => 'admin.'
 ], function () {
     Route::get('/', function () {
         return view('backend.welcome');

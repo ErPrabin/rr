@@ -9,7 +9,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ route($page . '.update', $data->id) }}" method="post"
+                        <form role="form" action="{{ route('admin.'.$page . '.update', $data->id) }}" method="post"
                             enctype="multipart/form-data">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
@@ -30,9 +30,9 @@
                                         value="{{ $data->delivery_time }}" required>
                                 </div>
                                 <select name="category_id" id="category">
-                                    @foreach ($category as $c)
-                                        <option {{ $c->name == $data->category->name ? 'selected' : '' }}
-                                            value="{{ $c->id }}">{{ $c->name }}</option>
+                                    @foreach ($menus as $menu)
+                                        <option {{ $menu->id == $data->menu->id ? 'selected' : '' }}
+                                            value="{{ $menu->id }}">{{ $menu->name }}</option>
                                     @endforeach
                                 </select>
                                 <div class="form-group">

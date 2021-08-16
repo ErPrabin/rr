@@ -39,8 +39,8 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     @foreach (config('menu.menu') as $menu)
-                        <li class="nav-item {{ Route::is($menu['slug'] . '*') ? 'active' : '' }} ">
-                            <a class="nav-link" href="{{ route($menu['slug'] . '.index') }}">
+                        <li class="nav-item {{ Route::is('admin.'.$menu['slug'] . '*') ? 'active' : '' }} ">
+                            <a class="nav-link" href="{{ route('admin.'.$menu['slug'] . '.index') }}">
                                 <i class="material-icons"></i>
                                 <p>{{ $menu['slug'] }}</p>
                             </a>
