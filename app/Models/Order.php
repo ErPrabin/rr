@@ -1,15 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Item;
+use App\Models\Item;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
     use SoftDeletes;    //db bata data delete nahune tara user ley kati bela delete gareko vanera delete_at column ma time save huncha
-    protected $dates = ['deleted_at']; 
+    protected $dates = ['deleted_at'];
 
     protected $fillable= [
         'users_id',
@@ -30,22 +30,21 @@ class Order extends Model
         'billing_total',
         'billing_gateway',
         'shipped',
-        'error',        
-
+        'error',
     ];
 
-    /** 
-     * Users sanga ko relation create gareko 
-     * 
+    /**
+     * Users sanga ko relation create gareko
+     *
     */
     public function user()
     {
-        return $this->belongsTo(User::class,'users_id');
+        return $this->belongsTo(User::class, 'users_id');
     }
 
-    /** 
-     * Items sanga ko relation create gareko 
-     * 
+    /**
+     * Items sanga ko relation create gareko
+     *
     */
     public function items()
     {

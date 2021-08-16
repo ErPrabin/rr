@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +10,7 @@ class ItemOrder extends Model
 
     protected $fillable= [
         'order_id',
-        'item_id', 
+        'item_id',
         'quantity',
     ];
 }
