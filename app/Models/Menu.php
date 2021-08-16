@@ -11,7 +11,7 @@ class Menu extends Model
     protected $dates = ['deleted_at'];
 
     //protected $table=foodmenus;
-    protected $fillable = ['name', 'sort'];
+    protected $fillable = ['name', 'image', 'sort'];
 
     public function items()
     {
