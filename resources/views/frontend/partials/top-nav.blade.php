@@ -50,7 +50,7 @@
             </div>
             <!-- RD Navbar Basket-->
             <div class="rd-navbar-basket-wrap">
-            <button class="rd-navbar-basket fl-bigmug-line-shopping202" data-rd-navbar-toggle=".cart-inline"><span>2</span></button>
+            <button class="rd-navbar-basket fl-bigmug-line-shopping202" data-rd-navbar-toggle=".cart-inline"> <i class="fas fa-shopping-cart"></i><span>2</span></button>
             <div class="cart-inline">
                 <div class="cart-inline-header">
                     <h5 class="cart-inline-title">In cart:<span> 2</span> Products</h5>

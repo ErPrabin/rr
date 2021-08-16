@@ -15,8 +15,8 @@
                 </div>
                 </div><span class="product-badge product-badge-sale">Sale</span>
                 <div class="product-button-wrap">
-                <div class="product-button"><a class="button button-secondary button-zakaria fl-bigmug-line-search74" href="single-product.html"></a></div>
-                <div class="product-button"><a class="button button-primary button-zakaria fl-bigmug-line-shopping202" href="cart-page.html"></a></div>
+                <div class="product-button"><a class="button button-secondary button-zakaria fl-bigmug-line-search74" href="single-product.html"><i class="fas fa-eye"></i></a></div>
+                <div class="product-button"><a class="button button-primary button-zakaria fl-bigmug-line-shopping202" href="cart-page.html"><i class="fas fa-shopping-cart"></i></a></div>
                 </div>
             </article>
             </div>
