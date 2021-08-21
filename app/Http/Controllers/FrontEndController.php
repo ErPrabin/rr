@@ -10,7 +10,8 @@ class FrontEndController extends Controller
 {
     public function index()
     {
-        return view('frontend.pages.index');
+        $items=Item::get();
+        return view('frontend.pages.index',compact('items'));
     }
     public function contact()
     {
