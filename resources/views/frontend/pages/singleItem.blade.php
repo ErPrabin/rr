@@ -56,6 +56,12 @@
                             <li><span>Delivery Time:</span><span>{{ $item->delivery_time }}</span></li>
                             {{-- <li><span>Box:</span><span>60 x 60 x 90 cm</span></li> --}}
                         </ul>
+                        <div class="group-xs group-middle">
+                            <div class="product-stepper">
+                                <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
+                            </div>
+                            <div><a class="button button-lg button-primary button-zakaria" href="#">Add to cart</a></div>
+                            </div>
                     </div>
                 </div>
             </div>
