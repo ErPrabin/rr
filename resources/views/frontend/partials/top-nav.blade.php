@@ -50,10 +50,10 @@
             </div>
             <!-- RD Navbar Basket-->
             <div class="rd-navbar-basket-wrap">
-            <button class="rd-navbar-basket fl-bigmug-line-shopping202" data-rd-navbar-toggle=".cart-inline"> <i class="fas fa-shopping-cart"></i><span>2</span></button>
+            <button class="rd-navbar-basket fl-bigmug-line-shopping202" data-rd-navbar-toggle=".cart-inline"> <i class="fas fa-shopping-cart"></i><span>{{ Cart::count() }}</span></button>
             <div class="cart-inline">
                 <div class="cart-inline-header">
-                    <h5 class="cart-inline-title">In cart:<span> 2</span> Products</h5>
+                    <h5 class="cart-inline-title">In cart:<span>{{ Cart::count() }}</span> Products</h5>
                     <h6 class="cart-inline-title">Total price:<span> $44</span></h6>
                 </div>
                 <div class="cart-inline-body">

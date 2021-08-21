@@ -8,38 +8,47 @@
         <div class="container">
             <!-- shopping-cart-->
             <div class="table-custom-responsive">
+                @if(count(Cart::content()) ==0)
+                    <p>
+                        No item in cart
+                    </p>
+                @else
                 <table class="table-custom table-cart">
-                <thead>
-                    <tr>
-                    <th>Product name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td><a class="table-cart-figure" href="single-product.html"><img src="{{ asset('images/product-mini-4-146x132.png') }}" alt="" width="146" height="132"/></a><a class="table-cart-link" href="single-product.html">Forest Berry</a></td>
-                    <td>$18.00</td>
-                    <td>
-                        <div class="table-cart-stepper">
-                        <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
-                        </div>
-                    </td>
-                    <td>$18</td>
-                    </tr>
-                    <tr>
-                    <td><a class="table-cart-figure" href="single-product.html"><img src="images/product-mini-5-146x132.png" alt="" width="146" height="132"/></a><a class="table-cart-link" href="single-product.html">Tomatoes</a></td>
-                    <td>$16.00</td>
-                    <td>
-                        <div class="table-cart-stepper">
-                        <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
-                        </div>
-                    </td>
-                    <td>$16</td>
-                    </tr>
-                </tbody>
+                    <thead>
+                        <tr>
+                        <th>Product name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(Cart::content() as $row)
+                            <tr>
+                                <td>
+                                    <a class="table-cart-figure" href="single-product.html"><img src="{{ asset('/images/item/'. $row->options->image ) }}" alt="" width="146" height="132"/></a><a class="table-cart-link" href="single-product.html">{{ $row->name }}</a>
+                                </td>
+                                <td>Rs. {{ $row->price }}</td>
+                                <td>
+                                    <div class="table-cart-stepper">
+                                    <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
+                                    </div>
+                                </td>
+                                <td class="price"> Rs. {{ $row->price * $row->qty }}</td>
+                                <td>
+                                    
+                                    <form action="{{route('cart.destroy',$row->rowId)}}" method="POST">
+                                        {{method_field('DELETE')}}
+                                        @csrf
+                                        <button type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>                                
+                                    </form>                                    
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
                 </table>
+                @endif
             </div>
             <div class="group-xl group-justify justify-content-center justify-content-md-between">
                 <div>
@@ -56,11 +65,16 @@
                 <div>
                 <div class="group-xl group-middle">
                     <div>
-                    <div class="group-md group-middle">
-                        <div class="heading-5 fw-medium text-gray-500">Total</div>
-                        <div class="heading-3 fw-normal">$44</div>
+                        <div class="group-md group-middle">
+                            <div class="heading-5 fw-medium text-gray-500">Sub Total</div>
+                            <div class="heading-3 fw-normal">$44</div>
+                        </div>
+                        <div class="group-md group-middle">
+                            <div class="heading-5 fw-medium text-gray-500">Total</div>
+                            <div class="heading-3 fw-normal">$44</div>
+                        </div>
                     </div>
-                    </div><a class="button button-lg button-primary button-zakaria" href="{{ route('checkout') }}">Proceed to checkout</a>
+                    <a class="button button-lg button-primary button-zakaria" href="{{ route('checkout') }}">Proceed to checkout</a>
                 </div>
                 </div>
             </div>
