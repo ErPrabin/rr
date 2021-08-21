@@ -65,13 +65,13 @@
                 <div>
                 <div class="group-xl group-middle">
                     <div>
-                        <div class="group-md group-middle">
-                            <div class="heading-5 fw-medium text-gray-500">Sub Total</div>
+                        {{-- <div class="group-md group-middle">
+                            <div class="heading-5 fw-medium text-gray-500">SubTotal</div>
                             <div class="heading-3 fw-normal">$44</div>
-                        </div>
+                        </div> --}}
                         <div class="group-md group-middle">
                             <div class="heading-5 fw-medium text-gray-500">Total</div>
-                            <div class="heading-3 fw-normal">$44</div>
+                            <div class="heading-3 fw-normal">Rs. {{ $newTotal }}</div>
                         </div>
                     </div>
                     <a class="button button-lg button-primary button-zakaria" href="{{ route('checkout') }}">Proceed to checkout</a>

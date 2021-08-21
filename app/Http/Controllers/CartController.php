@@ -180,6 +180,6 @@ class CartController extends Controller
             'newSubtotal' => $newSubtotal,
             'newTax' => $newTax,
             'newTotal' => $newTotal,
-       ]);
+        ]);
     }
 }
