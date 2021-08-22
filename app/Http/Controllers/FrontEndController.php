@@ -10,7 +10,8 @@ class FrontEndController extends Controller
 {
     public function index()
     {
-        return view('frontend.pages.index');
+        $items=Item::get();
+        return view('frontend.pages.index',compact('items'));
     }
     public function contact()
     {
@@ -65,7 +66,7 @@ class FrontEndController extends Controller
     public function singleItem($id)
     {
         $item = Item::find($id);
-        // dd($item);
-        return view('frontend.pages.singleItem', compact('item'));
+        $relateditems=Item::where('menus_id',$item->menus_id)->get();
+        return view('frontend.pages.singleItem', compact('item','relateditems'));
     }
 }

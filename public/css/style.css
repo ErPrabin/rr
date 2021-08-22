@@ -19958,7 +19958,7 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 }
 
 .stepper-arrow.up:before {
-    content: "\f504";
+    content: "+";
 }
 
 .stepper-arrow.down {
@@ -19966,7 +19966,7 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 }
 
 .stepper-arrow.down:before {
-    content: "\f465";
+    content: "-";
 }
 
 .stepper.disabled .stepper-arrow {

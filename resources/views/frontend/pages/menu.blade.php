@@ -11,7 +11,7 @@
                 <div class="col-lg-4 col-xl-3">
                 <div class="aside row row-30 row-md-50 justify-content-md-between">
                     <div class="aside-item col-sm-6 col-md-5 col-lg-12">
-                    <h6 class="aside-title">Categories</h6>
+                    {{-- <h6 class="aside-title">Categories</h6>
                     <ul class="list-shop-filter">
                         <li>
                         <label class="checkbox-inline">
@@ -41,7 +41,7 @@
                         <label class="form-label" for="search-form">Search in shop...</label>
                         <button class="button-search fl-bigmug-line-search74" type="submit"></button>
                         </div>
-                    </form>
+                    </form> --}}
                     </div>
                     <div class="aside-item col-sm-6 col-lg-12">
                     <h6 class="aside-title">Popular products</h6>

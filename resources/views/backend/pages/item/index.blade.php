@@ -21,6 +21,7 @@
                                         <th>Price</th>
                                         <th>Category</th>
                                         <th>Description</th>
+                                        <th>Veg/Non-Veg</th>
                                         <th>Delivery Time</th>
                                         <th>Image</th>
                                         <th>Sort</th>
@@ -34,6 +35,7 @@
                                             <td>{{ $d->price }}</td>
                                             <td>{{ $d->menu->name }}</td>
                                             <td>{!! $d->description !!}</td>
+                                            <td>{{ $d->veg }}</td>
                                             <td>{{ $d->delivery_time }}</td>
                                             <td>
                                                 <img src="{{ asset('images/' . $page . '/' . $d->image) }}" alt="null"
