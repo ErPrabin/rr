@@ -6,6 +6,7 @@ use Exception;
 use App\Models\User;
 // use App\Models\Esewa;
 use App\Models\Order;
+use App\Models\ItemOrder;
 use Illuminate\Support\Str;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
@@ -71,22 +72,20 @@ class OrderController extends Controller
             ]);
         }
 
-        // DB::beginTransaction();
-        // try {
-        //     $order= $this->addToOrdersTable($request);
+        DB::beginTransaction();
+        try {
+            $order= $this->addToOrdersTable($request);
+        
+            if ($order) {
+                $this->addToItemOrderTable($order);
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            // DB::rollback();
+            return redirect()->back()->with('error', 'Unable to Place the order');
+        }
 
-        //     if ($order) {
-        //         $this->addToOrderProductTable($order);
-        //     }
-        //     DB::commit();
-        // } catch (\Exception $e) {
-        //     // DB::rollback();
-        //     return redirect()->back()->with('error', 'Unable to Place the order');
-        //     // something went wrong
-        // }
-
-        $order= $this->addToOrdersTable($request);
-            
+        
         // $user=User::findOrFail(1);
         // $user->notify(new OrderNotification($order));
 
@@ -143,18 +142,25 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response $order
     */
 
-    protected function addToOrderProductTable($order)  //helper function banako
+    protected function addToItemOrderTable($order)  //helper function banako
     {
         //insert into pivot table
+        // foreach (Cart::content() as $item) {
+        //     OrderProduct::create([
+        //         'order_id'=> $order->id,
+        //         'product_id'=>$item->id,
+        //         'quantity'=> $item->qty,
+        //         'original_price' => $item->options->original_price ? $item->options->original_price : 0,
+        //         'discount'=> $item->options->discount,
+        //         'discounted_price' => $item->options->discounted_price,
+        //         'tax_amount' => $item->options->tax ,
+        //     ]);
+        // }
         foreach (Cart::content() as $item) {
-            OrderProduct::create([
+            ItemOrder::create([
                 'order_id'=> $order->id,
-                'product_id'=>$item->id,
+                'item_id'=>$item->id,
                 'quantity'=> $item->qty,
-                'original_price' => $item->options->original_price,
-                'discount'=> $item->options->discount,
-                'discounted_price' => $item->options->discounted_price,
-                'tax_amount' => $item->options->tax ,
             ]);
         }
     }

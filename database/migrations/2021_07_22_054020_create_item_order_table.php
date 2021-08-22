@@ -13,8 +13,7 @@ class CreateItemOrderTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('item_order')) 
-        {
+        if (!Schema::hasTable('item_order')) {
             Schema::create('item_order', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->unsignedBigInteger('order_id')->index();
