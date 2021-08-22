@@ -12,9 +12,13 @@ class Item extends Model
     use SearchableTrait; //Searchable ;
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-    protected $fillable =  ['name', 'price', 'description', 'image', 'menus_id', 'sort','delivery_time'];
+    protected $fillable =  ['name', 'price', 'description', 'image', 'menus_id', 'sort', 'veg', 'delivery_time'];
 
 
+    public function getVegAttribute($value)
+    {
+        return $value == 0 ? 'Non-Veg' : 'Veg';
+    }
 
     // copy gareko  ya dekhi
     /**
@@ -33,7 +37,7 @@ class Item extends Model
         'columns' => [
             'name' => 10,
             'price' => 10,
-        
+
             // 'posts.title' => 2, tala ko join ley kam gareko cha vane chaincha
             // 'posts.body' => 1,
         ],

@@ -35,6 +35,13 @@
                                             value="{{ $menu->id }}">{{ $menu->name }}</option>
                                     @endforeach
                                 </select>
+                                <br>
+                                <select name="veg" id="veg">
+                                        <option {{ $data->veg == 'Veg' ? 'selected' : '' }}
+                                            value="1">Veg</option>
+                                            <option {{ $data->veg == 'Non-Veg' ? 'selected' : '' }}
+                                                value="0">Non-Veg</option>
+                                </select>
                                 <div class="form-group">
                                     <label for="name">Description </label>
                                     <input class="form-control"  name="description" value="{!!strip_tags($data->description)  !!}"></input>
