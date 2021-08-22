@@ -2,7 +2,7 @@
 
 namespace App\Notifications;
 
-use App\Order;
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -24,7 +24,6 @@ class OrderPlacedNotification extends Notification
         $this->order= $order;
         // print_r($this->order);
         // dd();
-        
     }
 
     /**
@@ -36,7 +35,7 @@ class OrderPlacedNotification extends Notification
     public function via($notifiable)
     {
         //dd($notifiable);
-        return ['mail','database'];
+        return ['mail'];
     }
 
     /**
@@ -48,10 +47,10 @@ class OrderPlacedNotification extends Notification
     public function toMail($notifiable)
     {
         //dd($notifiable);
-       //dd($this->order->user->email);
+        //dd($this->order->user->email);
         return (new MailMessage())->from($this->order->user->email)
                                 ->subject('Order Placed')
-                                ->markdown('emails.orderplacednotification',[ 'order'=>$this->order]);
+                                ->markdown('emails.orderplacednotification', [ 'order'=>$this->order]);
     }
 
 
@@ -59,7 +58,7 @@ class OrderPlacedNotification extends Notification
     public function toDatabase()
     {
         return [
-            'amount'=> round($this->order->billing_total,2),
+            'amount'=> round($this->order->billing_total, 2),
         ];
     }
     /**

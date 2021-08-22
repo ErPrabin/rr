@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Notifications\OrderConfirmed;
-use App\Notifications\OrderNotification;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\OrderPlacedNotification;
 
 class OrderController extends Controller
 {
@@ -79,15 +79,13 @@ class OrderController extends Controller
             if ($order) {
                 $this->addToItemOrderTable($order);
             }
+            $user=User::select('email')->where('role', 'admin')->get();
+            Notification::send($user, new OrderPlacedNotification($order));
             DB::commit();
         } catch (\Exception $e) {
             // DB::rollback();
             return redirect()->back()->with('error', 'Unable to Place the order');
         }
-
-        
-        // $user=User::findOrFail(1);
-        // $user->notify(new OrderNotification($order));
 
         // Auth::user()->notify(new OrderConfirmed($order));
 
