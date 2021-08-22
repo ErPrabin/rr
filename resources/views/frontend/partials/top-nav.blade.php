@@ -147,8 +147,6 @@
                         </li>
                         <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('about') }}">About Us</a>
                         </li>
-                        <li class="rd-nav-item"><a class="rd-nav-link" href="blog-list.html">Blog</a>
-                        </li>
                         <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('menu') }}">Menu</a>
                         </li>
                         <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('allItems') }}">Items</a>
