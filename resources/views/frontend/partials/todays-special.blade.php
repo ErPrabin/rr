@@ -15,7 +15,7 @@
                                 {{-- <div class="product-price product-price-old">$30.00</div> --}}
                                 <div class="product-price"> ${{ $item->price }}</div>
                             </div>
-                        </div><span class="product-badge product-badge-sale">Sale</span>
+                        </div><span class="product-badge product-badge-sale">{{ $item->veg }}</span>
                         <div class="product-button-wrap">
                             <div class="product-button">
                                 <a class="button button-secondary button-zakaria fl-bigmug-line-search74"

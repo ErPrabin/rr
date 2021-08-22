@@ -33,6 +33,12 @@
                                             <option value="{{ $data->id }}">{{ $data->name }}</option>
                                         @endforeach
                                     </select>
+                                    <br>
+                                    <select name="veg" id="veg">
+                                        <option disabled selected>Select a Veg of Non-Veg</option>
+                                        <option value="1">Veg</option>
+                                        <option value="0">Non-Veg</option>
+                                    </select>
 
                                 <div class="form-group">
                                     <label for="name">Description </label>
@@ -43,7 +49,7 @@
                                     <label for="exampleInputFile">Image </label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="image" id="exampleInputFile">
+                                            <input type="file" class="custom-file-input" name="image" id="exampleInputFile" required>
                                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                         </div>
                                         <div class="input-group-append">
