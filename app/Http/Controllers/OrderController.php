@@ -98,8 +98,8 @@ class OrderController extends Controller
         //     $this->payWithEsewa($order);
         //     return redirect()->route('checkout.payment.esewa', $order->id)->with('Success', 'Your payment has been successfully accepted! DONT forget to check your email.');
         // }
-        return "successful";
-        // return redirect()->route('orderDetail', $order->id)->with('Success', 'Your order has been confirmed! DONT forget to check your email.');
+        // return "successful";
+        return redirect()->route('order.show', $order->id)->with('Success', 'Your order has been confirmed! DONT forget to check your email.');
     }
 
     /**
@@ -172,7 +172,11 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::findOrFail($id);
+
+        return view('frontend.pages.order-details', with([
+            'order' => $order
+        ]));
     }
 
     /**
