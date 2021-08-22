@@ -62,7 +62,7 @@ class CartController extends Controller
 
         Cart::add(['id'=>$request->id,'name'=> $request->name,'qty'=> 1, 'price' =>$request->price,'weight' => 1,'options'=>['image' =>$request->image ] ])->associate('App\Models\Item');
         //Cart::store(auth()->user()->id);
-        return redirect()->route('cart.index')->with('success', 'Cart added successfully');
+        return redirect()->back()->with('success', 'Cart added successfully');
     }
 
 
