@@ -95,7 +95,7 @@
                         <a class="button button-default-outline-2 button-zakaria" href="{{ route('cart.index') }}">
                             Go to cart
                         </a>
-                        <a class="button button-primary button-zakaria" href="{{ route('checkout') }}">
+                        <a class="button button-primary button-zakaria" href="{{ route('checkout.index') }}">
                             Checkout
                         </a>
                     </div>
@@ -149,7 +149,7 @@
                     <ul class="rd-menu rd-navbar-dropdown">
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('cart.index') }}">Cart Page</a>
                         </li>
-                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('checkout') }}">Checkout</a>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('checkout.index') }}">Checkout</a>
                         </li>
                     </ul>
                 </li>

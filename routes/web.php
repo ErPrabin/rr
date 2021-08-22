@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FrontEndController;
 
 /*
@@ -38,14 +38,12 @@ Route::get('/contact-us', [FrontEndController::class,'contact'])->name('contact'
 Route::get('/about-us', [FrontEndController::class,'about'])->name('about');
 Route::get('/terms-and-conditions', [FrontEndController::class,'terms'])->name('terms');
 Route::get('/privacy-policy', [FrontEndController::class,'privacy'])->name('privacy');
-Route::get('/checkout', [FrontEndController::class,'checkout'])->name('checkout');
+// Route::get('/checkout', [FrontEndController::class,'checkout'])->name('checkout');
 Route::get('/gallery', [FrontEndController::class,'gallery'])->name('gallery');
 Route::get('/menu', [FrontEndController::class,'menu'])->name('menu');
 Route::get('/item/{id}', [FrontEndController::class,'itemByMenu'])->name('itemByMenu');
 Route::get('/all-items', [FrontEndController::class,'allItems'])->name('allItems');
 Route::get('/single-item/{id}', [FrontEndController::class,'singleItem'])->name('singleItem')->whereNumber('id');
-
-
 
 
 // //  ------------------------
@@ -98,12 +96,12 @@ Route::resource('cart', 'CartController');
 // })->name('empty.saveForLater');
 
 
-// //  ------------------------
-// //  ROUTE FOR CHECKOUT
-// //  ------------------------
+//  ------------------------
+//  ROUTE FOR CHECKOUT
+//  ------------------------
 
-// Route::resource('checkout', 'CheckoutController');
-// Route::get('/thankyou', 'CheckoutController@thankyou')->name('thankyou');
+Route::resource('checkout', 'CheckoutController');
+Route::get('/thankyou', 'CheckoutController@thankyou')->name('thankyou');
 
 
 

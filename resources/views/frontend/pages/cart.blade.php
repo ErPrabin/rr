@@ -74,7 +74,7 @@
                             <div class="heading-3 fw-normal">Rs. {{ $newTotal }}</div>
                         </div>
                     </div>
-                    <a class="button button-lg button-primary button-zakaria" href="{{ route('checkout') }}">Proceed to checkout</a>
+                    <a class="button button-lg button-primary button-zakaria" href="{{ route('checkout.index') }}">Proceed to checkout</a>
                 </div>
                 </div>
             </div>

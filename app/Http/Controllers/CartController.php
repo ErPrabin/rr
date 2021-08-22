@@ -162,24 +162,4 @@ class CartController extends Controller
 
         return redirect()->route('cart.index')->with('success', 'Item added for Save For Later!');
     }
-
-    private function getNumbers()
-    {
-        $tax= config('cart.tax')/100;
-        $discount = session()->get('coupon')['discount'] ?? 0;
-        $code=session()->get('coupon')['name']?? null;
-        $Subtotal=(float) str_replace(',', '', Cart::subtotal());
-        $newSubtotal=round($Subtotal - $discount);
-        $newTax = $newSubtotal * $tax ;
-        $newTotal= $newSubtotal + $newTax;   // OR  $newTotal = $newSubtotal*(1+$tax);
-        
-        return collect([
-            'tax' => $tax,
-            'discount' => $discount ,
-            'code' => $code,
-            'newSubtotal' => $newSubtotal,
-            'newTax' => $newTax,
-            'newTotal' => $newTotal,
-        ]);
-    }
 }

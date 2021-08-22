@@ -26,14 +26,13 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        return view('checkout.checkout')->with([
+        return view('frontend.pages.checkout')->with([
             'tax' => $this->getNumbers()->get('tax'),
             'discount' => $this->getNumbers()->get('discount') ,
             'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
             'newTax' => $this->getNumbers()->get('newTax'),
             'newTotal' => $this->getNumbers()->get('newTotal'),
-       ]);
-      
+        ]);
     }
 
 
@@ -59,16 +58,14 @@ class CheckoutController extends Controller
      */
     public function store(CheckoutRequest $request)
     {
-       // dd($request->all());
-        $user=User::where('role','admin')->first();
+        // dd($request->all());
+        $user=User::where('role', 'admin')->first();
         //$email= $user->email;
-        $contents= Cart::content()->map(function($item)
-        {
-          return $item->model->name.','. $item->qty;
+        $contents= Cart::content()->map(function ($item) {
+            return $item->model->name.','. $item->qty;
         })->values()->toJson();
 
-        try
-        {
+        try {
             $charge= Stripe::charges()->create([
                 'amount'=> $this->getNumbers()->get('newTotal'),
                 'currency' =>'NPR',
@@ -78,29 +75,25 @@ class CheckoutController extends Controller
                 'metadata'=>[
                         'contents'=>$contents,
                         'quantity' => Cart::instance('default')->count(),
-                        'discount' => collect( session()->get('coupon'))->toJson(),
+                        'discount' => collect(session()->get('coupon'))->toJson(),
                 ],
 
             ]);
 
 
-            $order = $this->addToOrdersTable($request,null);  //tala ko helper function call gareko 
+            $order = $this->addToOrdersTable($request, null);  //tala ko helper function call gareko
             Mail::queue(new OrderPlaced($order));
             
-            Notification::send( $user , new OrderPlacedNotification($order));
-            //successful payment 
+            Notification::send($user, new OrderPlacedNotification($order));
+            //successful payment
 
             Cart::instance('default')->destroy();
             session()->forget('coupon');
-            return redirect()->route('thankyou')->with('success','Your payment has been successfully accepted! DONT forget to check your email.');
+            return redirect()->route('thankyou')->with('success', 'Your payment has been successfully accepted! DONT forget to check your email.');
+        } catch (CardErrorException $e) {
+            $this->addToOrdersTable($request, $e->getMessage());  //tala ko helper function call gareko
+            return back()->with('error', 'Error!'. $e->getMessage());
         }
-
-        catch (CardErrorException $e)
-        {
-            $this->addToOrdersTable($request, $e->getMessage());  //tala ko helper function call gareko 
-            return back()->with('error','Error!'. $e->getMessage());
-        }
-     
     }
 
 
@@ -120,12 +113,11 @@ class CheckoutController extends Controller
             'billing_subtotal'=>$this->getNumbers()->get('newSubtotal'),
             'billing_tax'=>$this->getNumbers()->get('newTax'),
             'billing_total'=>$this->getNumbers()->get('newTotal'),
-            'error'=>$error,        
+            'error'=>$error,
         ]);
 
         //insert into pivot table
-        foreach (Cart::content() as $item) 
-        {
+        foreach (Cart::content() as $item) {
             ItemOrder::create([
                 'order_id'=> $order->id,
                 'item_id'=>$item->id,
@@ -134,14 +126,12 @@ class CheckoutController extends Controller
         }
 
         return $order;
-
     }
 
 
     public function thankyou()
     {
-        if(!session()->has('success'))
-        {
+        if (!session()->has('success')) {
             return redirect()->route('/');
         }
         return view('checkout.thankyou');
@@ -200,25 +190,24 @@ class CheckoutController extends Controller
         //
     }
 
-    private function getNumbers()
-    {
-        $tax= config('cart.tax')/100;
-        $discount=session()->get('coupon')['discount'] ?? 0;
-        $code=session()->get('coupon')['name']?? null;
-        $Subtotal=(float) str_replace(',', '', Cart::subtotal());
-        $newSubtotal=($Subtotal - $discount);
-        $newTax = $newSubtotal * $tax ;
-        $newTotal= $newSubtotal + $newTax;   // OR  $newTotal = $newSubtotal*(1+$tax);
+    // private function getNumbers()
+    // {
+    //     $tax= config('cart.tax')/100;
+    //     $discount=session()->get('coupon')['discount'] ?? 0;
+    //     $code=session()->get('coupon')['name']?? null;
+    //     $Subtotal=(float) str_replace(',', '', Cart::subtotal());
+    //     $newSubtotal=($Subtotal - $discount);
+    //     $newTax = $newSubtotal * $tax ;
+    //     $newTotal= $newSubtotal + $newTax;   // OR  $newTotal = $newSubtotal*(1+$tax);
         
-        return collect([
+    //     return collect([
 
-            'tax' => $tax,
-            'discount' => $discount ,
-            'code' => $code,
-            'newSubtotal' => $newSubtotal,
-            'newTax' => $newTax,
-            'newTotal' => $newTotal,
-       ]);
-    }
-
+    //         'tax' => $tax,
+    //         'discount' => $discount ,
+    //         'code' => $code,
+    //         'newSubtotal' => $newSubtotal,
+    //         'newTax' => $newTax,
+    //         'newTotal' => $newTotal,
+    //    ]);
+    // }
 }
