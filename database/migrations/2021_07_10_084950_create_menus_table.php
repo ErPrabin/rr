@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Menu extends Migration
+class CreateMenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class Menu extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('menus')) {
-            Schema::create('menus', function (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->string('name')->unique();
-                $table->string('image')->nullable();
-                $table->integer('sort')->default(1);
-                $table->timestamps();
-                $table->softDeletes();
-            });
-        }
+        Schema::create('menus', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->string('image')->nullable();
+            $table->integer('sort')->default(1);
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -32,7 +30,6 @@ class Menu extends Migration
      */
     public function down()
     {
-        //
         Schema::dropIfExists('menus');
     }
 }

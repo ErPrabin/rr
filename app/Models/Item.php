@@ -12,7 +12,7 @@ class Item extends Model
     use SearchableTrait; //Searchable ;
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-    protected $fillable =  ['name', 'price', 'description', 'image', 'menus_id', 'sort', 'veg', 'delivery_time'];
+    protected $fillable =  ['name', 'price', 'description', 'image', 'menus_id', 'sort', 'veg', 'delivery_time', 'todays_special'];
 
 
     public function getVegAttribute($value)

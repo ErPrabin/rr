@@ -1,8 +1,8 @@
 <section class="section section-xxl bg-default">
     <div class="container">
-        <h2 class="text-transform-capitalize wow fadeScale">Food Items</h2>
+        <h2 class="text-transform-capitalize wow fadeScale">Today's Special</h2>
         <div class="row row-lg row-30 row-lg-50">
-            @foreach ($items as $item)
+            @foreach ($specials as $item)
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <!-- Product-->
                     <article class="product wow fadeInRight">

@@ -11,7 +11,8 @@ class FrontEndController extends Controller
     public function index()
     {
         $items=Item::get();
-        return view('frontend.pages.index', compact('items'));
+        $specials=Item::where('todays_special', 1)->get();
+        return view('frontend.pages.index', compact('items', 'specials'));
     }
     public function contact()
     {
