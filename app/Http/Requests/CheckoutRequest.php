@@ -21,7 +21,7 @@ class CheckoutRequest extends FormRequest
      *
      * @return array
      */
-    public function rules() 
+    public function rules()
     {
         return [
             'email'=>'required | email ',
@@ -31,7 +31,6 @@ class CheckoutRequest extends FormRequest
             'user_id'=>'required',
             'requiredDate'=>'required',
             'name_on_card'=>'required',
-           
         ];
     }
 }

@@ -27,8 +27,15 @@ class FrontEndController extends Controller
 
     public function checkout()
     {
-        return view('frontend.pages.checkout');
+        return view('frontend.pages.checkout')->with([
+            'tax' => $this->getNumbers()->get('tax'),
+            'discount' => $this->getNumbers()->get('discount') ,
+            'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
+            'newTax' => $this->getNumbers()->get('newTax'),
+            'newTotal' => $this->getNumbers()->get('newTotal'),
+        ]);
     }
+    
     public function terms()
     {
         return view('frontend.pages.terms-and-conditions');

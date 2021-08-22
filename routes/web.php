@@ -103,7 +103,11 @@ Route::resource('cart', 'CartController');
 Route::resource('checkout', 'CheckoutController');
 Route::get('/thankyou', 'CheckoutController@thankyou')->name('thankyou');
 
+//  ------------------------
+//  ROUTE FOR ORDERS
+//  ------------------------
 
+Route::resource('order', 'OrderController');
 
 // //  ------------------------
 // //  ROUTE FOR COUPOUNS

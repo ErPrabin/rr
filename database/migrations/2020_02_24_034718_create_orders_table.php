@@ -13,34 +13,32 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('orders')) 
-        {
-            Schema::create('orders', function (Blueprint $table) 
-            {
+        if (!Schema::hasTable('orders')) {
+            Schema::create('orders', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->unsignedBigInteger('users_id')->index();
-                $table->foreign('users_id')->references('id')->on('users')->softDelete('cascade');
+                $table->foreign('users_id')->references('id')->on('users')->delete('cascade');
                 $table->date('orderDate');
-                $table->dateTime('requiredDate');
-                $table->string('billing_email');
-                $table->string('billing_name');
-                $table->string('billing_address');
-                $table->string('billing_city')->nullable();
-                $table->string('billing_province')->nullable();
-                $table->string('billing_postalcode')->nullable();
-                $table->unsignedBigInteger('billing_phone');
-                $table->string('billing_name_on_card');
-                $table->integer('billing_discount')->default(0);  
-                $table->string('billing_discount_code')->nullable();
-                $table->integer('billing_subtotal');
-                $table->integer('billing_tax');
-                $table->integer('billing_total');
-                $table->string('payment_gateway')->default('stripe');
-                $table->boolean('shipped')->default(false);
-                $table->string('error')->nullable();
+                $table->string('name');
+                $table->string('email');
+                $table->unsignedInteger('phone');
+                $table->string('address');
+                $table->string('city');
+                $table->integer('discount')->default(0);
+                $table->string('discount_code')->nullable();
+                $table->integer('subtotal');
+                $table->integer('total');
+                $table->string('payment_gateway');
+                $table->string('status')->default('pending');
+                $table->boolean('shipped')->default(0);
+                $table->string('shipping_name')->nullable();
+                $table->string('shipping_email')->nullable();
+                $table->string('shipping_phone')->nullable();
+                $table->string('shipping_address')->nullable();
+                $table->string('shipping_city')->nullable();
                 $table->timestamps();
                 $table->softDeletes();
-            }); 
+            });
         }
     }
 
