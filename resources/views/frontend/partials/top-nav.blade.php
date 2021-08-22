@@ -32,7 +32,7 @@
             <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
             <!-- RD Navbar Brand-->
             <div class="rd-navbar-brand">
-            <!--Brand--><a class="brand" href="index.html"><img class="brand-logo-dark" src="{{ asset('assets/img/logo.png') }}" alt="" width="117" height="41"/><img class="brand-logo-light" src="{{ asset('images/logo-inverse-234x82.png') }}" alt="" width="117" height="41"/></a>
+            <!--Brand--><a class="brand" href="{{ route('home') }}"><img class="brand-logo-dark" src="{{ asset('assets/img/logo.png') }}" alt="" width="117" height="41"/><img class="brand-logo-light" src="{{ asset('images/logo-inverse-234x82.png') }}" alt="" width="117" height="41"/></a>
             </div>
         </div>
         <div class="rd-navbar-aside-element">
@@ -88,8 +88,6 @@
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('about') }}">About Us</a>
                 </li>
-                <li class="rd-nav-item"><a class="rd-nav-link" href="blog-list.html">Blog</a>
-                </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('menu') }}">Menu</a>
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('allItems') }}">Items</a>
@@ -104,6 +102,11 @@
                         </li>
                     </ul>
                 </li>
+                @auth
+                <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('profile') }}">Profile</a>
+                </li>
+                @endauth
+                
                 <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('contact') }}">Contact Us</a>
                 </li>
                 </ul>
