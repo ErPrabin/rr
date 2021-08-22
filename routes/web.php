@@ -31,6 +31,7 @@ Route::group([
         Route::resource($menu['slug'], str_replace(' ', '', ucwords(str_replace("-", " ", $menu['slug']) . 'Controller')));
     }
 });
+Route::view('profile','profile.show')->name('profile');
 
 //santoshi
 Route::get('/', [FrontEndController::class,'index'])->name('home');

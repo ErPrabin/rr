@@ -25,9 +25,9 @@
 
     @include('frontend.partials.index-gallery')
 
-    @include('frontend.partials.our-team')
+    {{-- @include('frontend.partials.our-team') --}}
 
-    @include('frontend.partials.blog-post')
+    {{-- @include('frontend.partials.blog-post') --}}
 
     @include('frontend.partials.slogan')
 @endsection
