@@ -6,8 +6,8 @@ Your payment has been done successfully with amount of NPR {{ round($order->bill
 </p>
 
 **Order ID:** {{ $order->id }} <br>
-**Order Email:** {{ $order->billing_email }} <br>
-**Order Billing Name:** {{ $order->billing_name }} 
+**Order Email:** {{ $order->email }} <br>
+**Order Billing Name:** {{ $order->name }} 
 <br>
 **Order Total:** {{ round($order->billing_total,2) }}
 
