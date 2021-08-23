@@ -6,10 +6,10 @@ Payment has also been successfully donewith amount of NPR{{ round($order->billin
 </p>
 
 **Order ID:** {{ $order->id }} <br>
-**Order Email:** {{ $order->billing_email }} <br>
-**Order Billing Name:** {{ $order->billing_name }} 
+**Order Email:** {{ $order->email }} <br>
+**Order Billing Name:** {{ $order->name }} 
 <br>
-**Order Total:** {{ round($order->billing_total,2) }}
+**Order Total:** {{ round($order->total,2) }}
 
 **Items Ordered**
 <br>
@@ -19,9 +19,9 @@ Payment has also been successfully donewith amount of NPR{{ round($order->billin
     Quantity: {{ $item->pivot->quantity }} <br >
 <br><br>
 @endforeach
-@component('mail::button', ['url' => ''])
+{{-- @component('mail::button', ['url' => ''])
 Button Text
-@endcomponent
+@endcomponent --}}
 
 Thanks,<br>
 {{ config('app.name') }}

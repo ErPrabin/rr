@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Notifications\OrderConfirmed;
-use App\Notifications\OrderNotification;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\OrderPlacedNotification;
 
 class OrderController extends Controller
 {
@@ -79,15 +79,13 @@ class OrderController extends Controller
             if ($order) {
                 $this->addToItemOrderTable($order);
             }
+            $user=User::select('email')->where('role', 'admin')->get();
+            Notification::send($user, new OrderPlacedNotification($order));
             DB::commit();
         } catch (\Exception $e) {
             // DB::rollback();
             return redirect()->back()->with('error', 'Unable to Place the order');
         }
-
-        
-        // $user=User::findOrFail(1);
-        // $user->notify(new OrderNotification($order));
 
         // Auth::user()->notify(new OrderConfirmed($order));
 
@@ -98,8 +96,8 @@ class OrderController extends Controller
         //     $this->payWithEsewa($order);
         //     return redirect()->route('checkout.payment.esewa', $order->id)->with('Success', 'Your payment has been successfully accepted! DONT forget to check your email.');
         // }
-        return "successful";
-        // return redirect()->route('orderDetail', $order->id)->with('Success', 'Your order has been confirmed! DONT forget to check your email.');
+        // return "successful";
+        return redirect()->route('order.show', $order->id)->with('Success', 'Your order has been confirmed! DONT forget to check your email.');
     }
 
     /**
@@ -172,7 +170,11 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::findOrFail($id);
+
+        return view('frontend.pages.order-details', with([
+            'order' => $order
+        ]));
     }
 
     /**

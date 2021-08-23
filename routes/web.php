@@ -31,7 +31,7 @@ Route::group([
         Route::resource($menu['slug'], str_replace(' ', '', ucwords(str_replace("-", " ", $menu['slug']) . 'Controller')));
     }
 });
-Route::view('profile','profile.show')->name('profile');
+Route::view('profile', 'profile.show')->name('profile');
 
 //santoshi
 Route::get('/', [FrontEndController::class,'index'])->name('home');
@@ -39,7 +39,6 @@ Route::get('/contact-us', [FrontEndController::class,'contact'])->name('contact'
 Route::get('/about-us', [FrontEndController::class,'about'])->name('about');
 Route::get('/terms-and-conditions', [FrontEndController::class,'terms'])->name('terms');
 Route::get('/privacy-policy', [FrontEndController::class,'privacy'])->name('privacy');
-// Route::get('/checkout', [FrontEndController::class,'checkout'])->name('checkout');
 Route::get('/gallery', [FrontEndController::class,'gallery'])->name('gallery');
 Route::get('/menu', [FrontEndController::class,'menu'])->name('menu');
 Route::get('/item/{id}', [FrontEndController::class,'itemByMenu'])->name('itemByMenu');
@@ -117,20 +116,5 @@ Route::resource('order', 'OrderController');
 // Route::resource('coupons', 'CouponsController');
 // Route::post('/coupons/delete', 'CouponsController@delete')->name('coupons.delete');
 
-
-// //  ------------------------
-// //  ROUTE FOR CHECKING MAIL
-// //  ------------------------
-
-// Route::get('/mailable', function () {
-//     $order= App\Order::findOrFail(6);
-//     print_r($order);
-//     // return (new App\Mail\OrderPlaced($order));
-// });
-
-
-// //  ------------------------
-// //  ROUTE FOR MY-ORDERS
-// //  ------------------------
 
 // Route::get('/my-orders', 'OrderController@index')->name('orders.index');
