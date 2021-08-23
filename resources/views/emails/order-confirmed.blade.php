@@ -27,3 +27,4 @@ Keep ordering to get more discounts and offers!!
 Thanks,<br>
 {{ config('app.name') }}
 @endcomponent
+

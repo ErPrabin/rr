@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\OrderConfirmed;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\OrderPlacedNotification;
@@ -62,7 +63,7 @@ class OrderController extends Controller
             'payment_gateway'     => 'required | string',
         ]);
 
-        if ($request->different_address) {
+        if (!$request->different_address) {
             $this->validate($request, [
                 'shipping_name'     => ' required | string ',
                 'shipping_email'    => ' required | email ',
@@ -81,22 +82,17 @@ class OrderController extends Controller
             }
             $user=User::select('email')->where('role', 'admin')->get();
             Notification::send($user, new OrderPlacedNotification($order));
+            Notification::send(Auth::user(), new OrderConfirmed($order));
+            
             DB::commit();
         } catch (\Exception $e) {
             // DB::rollback();
             return redirect()->back()->with('error', 'Unable to Place the order');
         }
-
-        // Auth::user()->notify(new OrderConfirmed($order));
-
+        
         Cart::instance('default')->destroy();
         session()->forget('coupon');
 
-        // if ($request->payment_gateway=="esewa") {
-        //     $this->payWithEsewa($order);
-        //     return redirect()->route('checkout.payment.esewa', $order->id)->with('Success', 'Your payment has been successfully accepted! DONT forget to check your email.');
-        // }
-        // return "successful";
         return redirect()->route('order.show', $order->id)->with('Success', 'Your order has been confirmed! DONT forget to check your email.');
     }
 
