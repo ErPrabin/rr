@@ -32,7 +32,7 @@
             <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
             <!-- RD Navbar Brand-->
             <div class="rd-navbar-brand">
-            <!--Brand--><a class="brand" href="{{ route('home') }}"><img class="brand-logo-dark" src="{{ asset('assets/img/logo.png') }}" alt="" width="117" height="41"/><img class="brand-logo-light" src="{{ asset('images/logo-inverse-234x82.png') }}" alt="" width="117" height="41"/></a>
+            <!--Brand--><a class="brand" href="{{ route('home') }}"><img class="brand-logo-dark" src="{{ asset('assets/img/logo.png') }}" alt="" width="117" height="41"/><img class="brand-logo-light" src="{{ asset('assets/img/logo.png') }}" alt="" width="117" height="41"/></a>
             </div>
         </div>
         <div class="rd-navbar-aside-element">
@@ -103,7 +103,13 @@
                     </ul>
                 </li>
                 @auth
-                <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('profile') }}">Profile</a>
+                <li class="rd-nav-item"><a class="rd-nav-link" href="">My Details</a>
+                    <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('profile') }}">Profile</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('order.index') }}">My Orders</a>
+                        </li>
+                    </ul>
                 </li>
                 @endauth
                 
