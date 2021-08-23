@@ -29,9 +29,9 @@ class OrderController extends Controller
     {
         // $orders= auth()->user()->orders;
         
-        $orders= auth()->user()->orders()->with('items')->get();
+        $orders= Auth::user()->orders()->with('items')->get();
 
-        return view('order.my-orders')->with('orders', $orders);
+        return view('frontend.pages.order-history')->with('orders', $orders);
     }
 
     /**
