@@ -32,12 +32,11 @@
                                 <td>Rs. {{ $row->price }}</td>
                                 <td>
                                     <div class="table-cart-stepper">
-                                    <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
+                                    <input class="form-input" type="number" data-zeros="true" value="{{ $row->qty }}" min="1" max="1000">
                                     </div>
                                 </td>
                                 <td class="price"> Rs. {{ $row->price * $row->qty }}</td>
                                 <td>
-                                    
                                     <form action="{{route('cart.destroy',$row->rowId)}}" method="POST">
                                         {{method_field('DELETE')}}
                                         @csrf
