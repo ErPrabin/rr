@@ -32,7 +32,7 @@
             <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
             <!-- RD Navbar Brand-->
             <div class="rd-navbar-brand">
-            <!--Brand--><a class="brand" href="{{ route('home') }}"><img class="brand-logo-dark" src="{{ asset('assets/img/logo.png') }}" alt="" width="117" height="41"/><img class="brand-logo-light" src="{{ asset('assets/img/logo.png') }}" alt="" width="117" height="41"/></a>
+            <!--Brand--><a class="brand" href="{{ route('home') }}"><img class="brand-logo-dark" src="{{ asset('assets/img/logo.png') }}" alt="" width="180px" height="70px"/><img class="brand-logo-light" src="{{ asset('assets/img/logo.png') }}" alt="" width="180px" height="70px"/></a>
             </div>
         </div>
         <div class="rd-navbar-aside-element">
