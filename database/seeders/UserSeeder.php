@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'role' => 'admin',
-                'email' => 'admin@slair.com',
+                'email' => 'admin@gmail.com',
                 'phone_number' => '1234567890',
                 'password' => 'password',
             ],
