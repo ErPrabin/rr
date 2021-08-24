@@ -60,7 +60,7 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('alreadyincart', 'Item is already in your cart');
         }
 
-        Cart::add(['id'=>$request->id,'name'=> $request->name,'qty'=> 1, 'price' =>$request->price,'weight' => 1,'options'=>['image' =>$request->image ] ])->associate('App\Models\Item');
+        Cart::add(['id'=>$request->id,'name'=> $request->name,'qty'=> $request->qty ? $request->qty : 1, 'price' =>$request->price,'weight' => 1,'options'=>['image' =>$request->image ] ])->associate('App\Models\Item');
         //Cart::store(auth()->user()->id);
         return redirect()->back()->with('success', 'Cart added successfully');
     }

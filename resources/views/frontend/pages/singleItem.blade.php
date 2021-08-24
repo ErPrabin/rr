@@ -56,12 +56,17 @@
                             <li><span>Delivery Time:</span><span>{{ $item->delivery_time }}</span></li>
                             {{-- <li><span>Box:</span><span>60 x 60 x 90 cm</span></li> --}}
                         </ul>
-                        <div class="group-xs group-middle">
+                        <form class="group-xs group-middle" method="post" action="{{ route('cart.store') }}">
+                            @csrf
+                            <input name="id" type="hidden" class="form-control" value="{{$item->id}}" >
+                            <input name="name" type="hidden" class="form-control" value="{{$item->name}}" >
+                            <input name="price" type="hidden" class="form-control" value="{{$item->price}}" >
+                            <input name="image" type="hidden" class="form-control" value="{{$item->image}}" >
                             <div class="product-stepper">
-                                <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000">
+                                <input class="form-input" type="number" data-zeros="true" name="qty" value="1" min="1" max="1000">
                             </div>
-                            <div><a class="button button-lg button-primary button-zakaria" href="#">Add to cart</a></div>
-                            </div>
+                            <div><input type="submit" class="button button-lg button-primary button-zakaria" value="ADD TO CART"/></div>
+                        </form>
                     </div>
                 </div>
             </div>
