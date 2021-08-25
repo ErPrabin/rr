@@ -7,6 +7,6 @@ return [
         ['name' => 'Menu', 'slug' => 'menu'],
         ['name' => 'Item', 'slug' => 'item'],
         ['name' => 'Today Special', 'slug' => 'today-special'],
-        // ['name' => 'Order', 'slug' => 'order'],
+        ['name' => 'Order', 'slug' => 'order'],
     ]
 ];

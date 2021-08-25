@@ -18,9 +18,9 @@ class LoginResponse implements LoginResponseContract
         //$role = Auth::user()->role;
         //$checkrole = explode(',', $role);
 
-        // if (Auth::user()->role == 'admin') {
-        //     return redirect()->route('admin');
-        // }
+        if (Auth::user()->role == 'admin') {
+            return redirect()->route('admin.admin');
+        }
 
         // if (Auth::user()->role == 'user') {
         //     Session::put('isadmin', 'seller');
