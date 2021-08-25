@@ -24,7 +24,7 @@ Route::group([
     'prefix' => 'admin',
     'as' => 'admin.'
 ], function () {
-    Route::get('/', function () {
+    Route::get('/admin', function () {
         return view('backend.welcome');
     })->name('admin');
     foreach (config('menu.menu') as $menu) {
