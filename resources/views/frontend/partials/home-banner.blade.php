@@ -1,6 +1,6 @@
 <section class="section swiper-container swiper-slider swiper-slider-4" data-loop="false" data-autoplay="5000">
     <div class="swiper-wrapper context-dark">
-        <div class="swiper-slide swiper-slide-1" data-slide-bg="{{ asset('images/about-2-634x373.jpg') }}">
+        <div class="swiper-slide swiper-slide-1" data-slide-bg="{{ asset('assets/img/biryani.jpg') }}">
             <div class="swiper-slide-caption section-md text-sm-start">
                 <div class="container">
                     <div class="row">
@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        <div class="swiper-slide swiper-slide-2" data-slide-bg="{{ asset('images/about-4-634x373.jpg') }}">
+        {{-- <div class="swiper-slide swiper-slide-2" data-slide-bg="{{ asset('images/about-4-634x373.jpg') }}">
             <div class="swiper-slide-caption section-md text-center">
             <div class="container">
                 <h2 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">Make Your Food Organic</h2>
@@ -23,7 +23,7 @@
                 <div class="button-wrap" data-caption-animate="fadeInUp" data-caption-delay="400"><a class="button button-lg button-shadow-5 button-default-outline button-zakaria" href="grid-shop.html">Shop now</a></div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     <!-- Swiper Pagination-->
     <div class="swiper-pagination"></div>

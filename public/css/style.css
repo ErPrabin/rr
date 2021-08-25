@@ -3948,7 +3948,7 @@
     .bg-brown-1 .button-default-outline:focus,
     .bg-primary .button-default-outline:focus {
         color: #fff;
-        background-color: transparent;
+        background-color: #6ebfd8;
         border-color: #fff;
     }
     
