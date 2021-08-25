@@ -18,6 +18,7 @@
     @include('frontend.partials.services')
 
     @include('frontend.partials.todays-special')
+    @include('frontend.partials.fooditems')
 
     @include('frontend.partials.featured')
 
