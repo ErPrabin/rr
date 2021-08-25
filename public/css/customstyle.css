@@ -1,3 +1,12 @@
 .rd-nav-item a {
     color: black !important;
 }
+
+.rd-navbar-basket i,
+.rd-navbar-basket span {
+    color: white !important;
+}
+
+.rd-navbar-fixed-element-2 a {
+    color: white;
+}
