@@ -18,12 +18,13 @@
     @include('frontend.partials.services')
 
     @include('frontend.partials.todays-special')
+    @include('frontend.partials.fooditems')
 
     @include('frontend.partials.featured')
 
-    @include('frontend.partials.what-people-say')
+    {{-- @include('frontend.partials.what-people-say') --}}
 
-    @include('frontend.partials.index-gallery')
+    {{-- @include('frontend.partials.index-gallery') --}}
 
     {{-- @include('frontend.partials.our-team') --}}
 
