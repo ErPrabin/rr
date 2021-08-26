@@ -19915,17 +19915,18 @@
     .stepper {
         position: relative;
         display: block;
+        margin-top: -10px;
     }
     
     .stepper input[type="number"] {
         width: 100%;
-        padding: 10px 42px;
+        padding: 10px 10 px;
         font-weight: 500;
         font-family: poppins, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif;
         text-align: center;
         -moz-appearance: textfield;
-        background: #f5f5f5;
-        border-color: #f5f5f5;
+        background: #ffffff;
+        border-color: #ffffff;
     }
     
     .stepper input[type="number"]::-webkit-inner-spin-button {
