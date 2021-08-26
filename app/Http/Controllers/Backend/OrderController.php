@@ -11,8 +11,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::get();
-        $itemorders = ItemOrder::get();
-        return view('backend.pages.order.index', compact('orders', 'itemorders'));
+        $data = Order::get();
+        return view('backend.pages.order.index', compact('data'))->withPage('order');
     }
 }

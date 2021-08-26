@@ -28,19 +28,18 @@
                                 <tbody>
                                     @foreach ($data as $d)
                                         <tr>
+                                            <td>{{ $d->id }}</td>
                                             <td>{{ $d->name }}</td>
-                                            <td>{{ $d->price }}</td>
-                                            <td>{{ $d->menu->name }}</td>
-                                            <td>{!! $d->description !!}</td>
-                                            <td>{{ $d->veg }}</td>
-                                            <td>{{ $d->delivery_time }}</td>
                                             <td>
-                                                <img src="{{ asset('images/' . $page . '/' . $d->image) }}" alt="null"
-                                                    width="100px">
+                                                @foreach ($d->itemorders as  $item)
+                                                    {{ $item->quantity }}
+                                                    <br>
+                                                    
+                                                @endforeach
                                             </td>
-                                            <td>
-                                                {{ $d->sort }}
-                                            </td>
+                                            <td>{!! $d->total !!}</td>
+                                            <td>{{ $d->status }}</td>
+                                           
                                             <td>
                                                 @include('backend.include.action-btn')
                                               
