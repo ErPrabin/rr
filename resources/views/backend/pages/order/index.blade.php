@@ -5,10 +5,6 @@
     <section class="content">
         <div class="container-fluid">
 
-            <div class="addbtn">
-                <a href="{{ route('admin.'.$page . '.create') }}" class="btn btn-primary">Add More</a>
-            </div>
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">

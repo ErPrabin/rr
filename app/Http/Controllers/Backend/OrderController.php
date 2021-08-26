@@ -14,4 +14,9 @@ class OrderController extends Controller
         $data = Order::get();
         return view('backend.pages.order.index', compact('data'))->withPage('order');
     }
+    public function show($id){
+        $order=Order::findOrFail($id);
+        return view('backend.pages.order.show', compact('order'))->withPage('order');
+
+    }
 }
