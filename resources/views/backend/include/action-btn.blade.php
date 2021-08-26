@@ -1,3 +1,4 @@
+
 <a href="{{ route('admin.'.$page . '.edit', $d->id) }}"><i class="fa fa-edit"></i></a>
 <a href="javascript:void(0)"><i onclick="deletedata('{{ $d->id }}')" class="fa fa-trash"></i></a>
 <form action="{{ route('admin.'.$page . '.destroy', $d->id) }}" method="post" id="delme-{{ $d->id }}">

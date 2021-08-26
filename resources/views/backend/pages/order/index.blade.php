@@ -32,9 +32,8 @@
                                             <td>{{ $d->name }}</td>
                                             <td>
                                                 @foreach ($d->itemorders as  $item)
-                                                    {{ $item->quantity }}
+                                                    {{ $item->item->name }}: {{ $item->quantity }}
                                                     <br>
-                                                    
                                                 @endforeach
                                             </td>
                                             <td>{!! $d->total !!}</td>
