@@ -25,6 +25,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       
+        view()->composer('backend.*', function ($view) {
+
+            if (Schema::hasTable('orders')) {
+                $orders = Order::where('status','pending')->get();
+                $view->with('ordercount', count($orders));
+            }
+        });
     }
 }
