@@ -42,6 +42,12 @@
                                             <option {{ $data->veg == 'Non-Veg' ? 'selected' : '' }}
                                                 value="0">Non-Veg</option>
                                 </select>
+                                <select name="todays_special" id="todays_special">
+                                    <option {{ $data->todays_special == 1 ? 'selected' : '' }}
+                                        value="1">Today special</option>
+                                        <option {{ $data->todays_special == 0 ? 'selected' : '' }}
+                                            value="0">Not Today Special</option>
+                            </select>
                                 <div class="form-group">
                                     <label for="name">Description </label>
                                     <input class="form-control"  name="description" value="{!!strip_tags($data->description)  !!}"></input>

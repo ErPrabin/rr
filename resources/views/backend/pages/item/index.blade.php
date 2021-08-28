@@ -23,6 +23,7 @@
                                         <th>Description</th>
                                         <th>Veg/Non-Veg</th>
                                         <th>Delivery Time</th>
+                                        <th>Today Special</th>
                                         <th>Image</th>
                                         <th>Sort</th>
                                         <th>Action</th>
@@ -37,6 +38,8 @@
                                             <td>{!! $d->description !!}</td>
                                             <td>{{ $d->veg }}</td>
                                             <td>{{ $d->delivery_time }}</td>
+                                            <td>{!! $d->todays_special==0?'No':'Yes' !!}</td>
+
                                             <td>
                                                 <img src="{{ asset('images/' . $page . '/' . $d->image) }}" alt="null"
                                                     width="100px">

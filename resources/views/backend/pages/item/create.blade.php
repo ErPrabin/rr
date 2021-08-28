@@ -33,11 +33,16 @@
                                             <option value="{{ $data->id }}">{{ $data->name }}</option>
                                         @endforeach
                                     </select>
-                                    <br>
+                                    <br><br>
                                     <select name="veg" id="veg">
                                         <option disabled selected>Select a Veg of Non-Veg</option>
                                         <option value="1">Veg</option>
                                         <option value="0">Non-Veg</option>
+                                    </select>
+                                    <br><br>
+                                    <select name="todays_special" id="todays_special">
+                                        <option value="0" selected>Not Today Special</option>
+                                        <option value="1">Today Special </option>
                                     </select>
 
                                 <div class="form-group">
