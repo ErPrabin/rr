@@ -138,10 +138,36 @@
               </div>
               <div class="radio-panel">
                 <label class="radio-inline">
-                  <input name="payment_gateway" value="esewa" type="radio">Esewa
+                  <input name="payment_gateway" value="card" type="radio">Card Payment
                 </label>
                 <div class="radio-panel-content">
-                  <p>Pay via Esewa</p>
+                  <p>Pay via Stripe</p>
+                  <div class="row row-6">
+                    <div class="col-sm-6">
+                      <div class="form-wrap">
+                        <input class="form-input" type="text" name="expiry_month"/>
+                        <label class="form-label" for="checkout-address-1">Card Number</label>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-wrap">
+                        <input class="form-input" type="text" name="expiry_month"/>
+                        <label class="form-label" for="checkout-address-1">Expiry Month</label>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-wrap">
+                        <input class="form-input" type="text" name="expiry_date"/>
+                        <label class="form-label" for="checkout-address-1">Expiry Year</label>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-wrap">
+                        <input class="form-input" id="checkout-city-1" type="text" name="cvc"/>
+                        <label class="form-label" for="checkout-city-1">CVC</label>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

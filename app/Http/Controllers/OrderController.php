@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\User;
-// use App\Models\Esewa;
 use App\Models\Order;
 use App\Models\ItemOrder;
 use Illuminate\Support\Str;
-use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -80,9 +78,34 @@ class OrderController extends Controller
             if ($order) {
                 $this->addToItemOrderTable($order);
             }
-            $user=User::select('email')->where('role', 'admin')->get();
-            Notification::send($user, new OrderPlacedNotification($order));
-            Notification::send(Auth::user(), new OrderConfirmed($order));
+
+            
+            if ($request->payment_gateway == "card") {
+                dd('stripe');
+                $stripe = new \Stripe\StripeClient(
+                    config('service.stripe')
+                );
+                
+                $token = $stripe->tokens->create([
+                    'card' => [
+                    'number' => $request->card_number,
+                    'exp_month' => $request->expiry_month,
+                    'exp_year' => $request->expiry_year,
+                    'cvc' => $request->cvc,
+                    ],
+                ]);
+                
+                $charge = $stripe->charges->create([
+                    'amount' =>  $this->getNumbers()->get('newTotal') * 100,
+                    'currency' => 'aud',
+                    'source' => $token,
+                    'description' => 'Food ordered by ' . auth()->user()->name ,
+                ]);
+            }
+            
+            // $user=User::select('email')->where('role', 'admin')->get();
+            // Notification::send($user, new OrderPlacedNotification($order));
+            // Notification::send(Auth::user(), new OrderConfirmed($order));
             
             DB::commit();
         } catch (\Exception $e) {
