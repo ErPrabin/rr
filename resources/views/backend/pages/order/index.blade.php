@@ -23,7 +23,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $d)
-                                        <tr>
+                                        <tr class="{{ $d->status=='pending'?'pending-row':'' }} ">
                                             <td>{{ $d->id }}</td>
                                             <td>{{ $d->name }}</td>
                                             <td>

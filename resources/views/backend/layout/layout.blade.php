@@ -39,12 +39,25 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     @foreach (config('menu.menu') as $menu)
-                        <li class="nav-item {{ Route::is('admin.'.$menu['slug'] . '*') ? 'active' : '' }} ">
-                            <a class="nav-link" href="{{ route('admin.'.$menu['slug'] . '.index') }}">
-                                <i class="material-icons"></i>
-                                <p>{{ $menu['slug'] }}</p>
-                            </a>
-                        </li>
+                        @if ($menu['slug'] == 'order')
+                            <li class="nav-item {{ Route::is('admin.' . $menu['slug'] . '*') ? 'active' : '' }} ">
+                                <a class="nav-link" href="{{ route('admin.' . $menu['slug'] . '.index') }}">
+                                    <i class="material-icons"></i>
+                                
+                                <p>{{ $menu['slug'] }} &nbsp; &nbsp; &nbsp;({{ $ordercount }}) </p>
+                                </a>
+                            </li>
+                        @else
+                            <li class="nav-item {{ Route::is('admin.' . $menu['slug'] . '*') ? 'active' : '' }} ">
+                                <a class="nav-link" href="{{ route('admin.' . $menu['slug'] . '.index') }}">
+                                    <i class="material-icons"></i>
+                                    <p>{{ $menu['slug'] }}</p>
+                                </a>
+                            </li>
+
+                        @endif
+
+
 
                     @endforeach
 
@@ -71,9 +84,8 @@
                             <li class="nav-item">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-    
-                                    <x-jet-dropdown-link href="{{ route('logout') }}"
-                                             onclick="event.preventDefault();
+
+                                    <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                         <button class="btn btn-danger">{{ __('Log Out') }}</button>
                                     </x-jet-dropdown-link>
@@ -116,13 +128,10 @@
     </div>
 </body>
 <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script>
-    
     ClassicEditor
         .create(document.querySelector('#editor'), {
             // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]

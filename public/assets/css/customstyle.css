@@ -1,12 +1,19 @@
 .ck-editor__editable {
     min-height: 200px;
 }
-.fa-edit{
+
+.fa-edit {
     color: black;
 }
-.fa-trash{
+
+.fa-trash {
     color: red;
 }
-.fa{
+
+.fa {
     font-size: 16px !important;
+}
+
+.pending-row {
+    background-color: #f2aea9 !important;
 }
