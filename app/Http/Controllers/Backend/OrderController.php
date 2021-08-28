@@ -14,9 +14,25 @@ class OrderController extends Controller
         $data = Order::get();
         return view('backend.pages.order.index', compact('data'))->withPage('order');
     }
-    public function show($id){
-        $order=Order::findOrFail($id);
+    public function show($id)
+    {
+        $order = Order::findOrFail($id);
         return view('backend.pages.order.show', compact('order'))->withPage('order');
-
+    }
+    public function changeStatus($id)
+    {
+        $order = Order::find($id);
+        if ($order->status == 'pending') {
+            $order->status='accepted';
+            $order->save();
+            // $order->update([
+            //     'status' => 'accepted',
+            // ]);
+            // dd($order);
+        } else {
+            $order->status='pending';
+            $order->save();
+        }
+        return redirect()->back();
     }
 }

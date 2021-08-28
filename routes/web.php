@@ -32,8 +32,11 @@ Route::group([
     foreach (config('menu.menu') as $menu) {
         Route::resource($menu['slug'], str_replace(' ', '', ucwords(str_replace("-", " ", $menu['slug']) . 'Controller')));
     }
+    Route::get('changestatus/{id}','OrderController@changeStatus')->name('changestatus');
+
 });
 Route::view('profile', 'profile.show')->name('profile');
+
 
 //santoshi
 Route::get('/', [FrontEndController::class, 'index'])->name('home');

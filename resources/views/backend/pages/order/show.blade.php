@@ -42,7 +42,7 @@
                     <h2><b> Items Information</b></h2>
                      <b>Total Price: <h2 style="color: green"> ${{$order->total  }}</h2> </b>
                      <br>
-                     <b>Status: {{ $order->status }}</b>
+                     <b>Status:<a href="{{ route('admin.changestatus',$order->id) }}" class="badge {{ $order->status=='pending'?'badge-danger':"badge-primary" }} ">{{ $order->status }}</a></b>
                 </div>
             </div>
             <div class="detail-table" style="padding-top: 50px">
