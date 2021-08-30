@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Menu;
 use App\Models\Order;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -26,11 +27,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('backend.*', function ($view) {
-
             if (Schema::hasTable('orders')) {
-                $orders = Order::where('status','pending')->get();
+                $orders = Order::where('status', 'pending')->get();
                 $view->with('ordercount', count($orders));
             }
+        });
+
+        Menu::deleting(function ($menu) {
+            $menu->items()->delete();
         });
     }
 }
