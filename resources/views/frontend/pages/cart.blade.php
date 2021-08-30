@@ -24,8 +24,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (Cart::content() as $row)
-                                <tr>
+                            @foreach (Cart::content() as $index=>$row)
+                                <tr data-id="{{ $loop->iteration }}">
                                     <td>
                                         <a class="table-cart-figure" href="single-product.html"><img
                                                 src="{{ asset('/images/item/' . $row->options->image) }}" alt=""
@@ -37,14 +37,15 @@
                                         <div class="">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    -
+                                                    <button onclick="decrement(this)" id="{{ $loop->iteration }}">-</button>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input class="form-input" type="number" data-zeros="true"
-                                                        value="{{ $row->qty }}" min="1" max="1000">
+                                                    <input class="form-input quantity update-cart" type="number" data-zeros="true" id="item_qty{{ $loop->iteration }}"
+                                                        value="{{ $row->qty }}" min="1" max="1000" disabled="disabled">
+                                                        <input type="hidden" id="rowId{{ $loop->iteration }}" value="{{ $row->rowId }}">
                                                 </div>
                                                 <div class="col-md-3">
-                                                    +
+                                                    <button onclick="increment(this)" id="{{ $loop->iteration }}">+</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -94,5 +95,40 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function increment(elem) {
+            let id=elem.id;
+            let qty=document.getElementById('item_qty' + id).value;
+            let new_quantity=parseInt(qty)+1
+            document.getElementById('item_qty' + id).value=new_quantity;
+            let rowId=document.getElementById('rowId'+id).value;
+            save_to_db(rowId, new_quantity);
+
+        }
+        function decrement(elem) {
+            let id=elem.id;
+            let qty=document.getElementById('item_qty' + id).value;
+            let rowId=document.getElementById('rowId'+id).value;
+            if(qty>1){
+                let new_quantity=parseInt(qty)-1;
+                document.getElementById('item_qty' + id).value=new_quantity;
+                save_to_db(rowId, new_quantity);
+            }
+        }  
+        function save_to_db(rowId, new_quantity) {
+            $.ajax({
+                url : '/cart/'+rowId,
+                method: "patch",
+                data: {
+                    _token: '{{ csrf_token() }}',  
+                    qty: new_quantity
+                },
+            success: function (response) {
+                window.location.reload();
+            }
+            });
+        }      
+    </script>
 
 @endsection
