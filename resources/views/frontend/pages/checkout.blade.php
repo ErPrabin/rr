@@ -145,7 +145,7 @@
                   <div class="row row-6">
                     <div class="col-sm-6">
                       <div class="form-wrap">
-                        <input class="form-input" type="text" name="expiry_month"/>
+                        <input class="form-input" type="text" name="card_number"/>
                         <label class="form-label" for="checkout-address-1">Card Number</label>
                       </div>
                     </div>
@@ -157,7 +157,7 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="form-wrap">
-                        <input class="form-input" type="text" name="expiry_date"/>
+                        <input class="form-input" type="text" name="expiry_year"/>
                         <label class="form-label" for="checkout-address-1">Expiry Year</label>
                       </div>
                     </div>

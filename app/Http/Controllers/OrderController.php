@@ -50,7 +50,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $this->validate($request, [
             'name'                => 'required | string',
             'email'               => 'required | email',
@@ -73,17 +72,12 @@ class OrderController extends Controller
 
         DB::beginTransaction();
         try {
-            $order= $this->addToOrdersTable($request);
-        
-            if ($order) {
-                $this->addToItemOrderTable($order);
-            }
+            
 
             
             if ($request->payment_gateway == "card") {
-                dd('stripe');
                 $stripe = new \Stripe\StripeClient(
-                    config('service.stripe')
+                    env('STRIPE_SECRET')
                 );
                 
                 $token = $stripe->tokens->create([
@@ -101,6 +95,11 @@ class OrderController extends Controller
                     'source' => $token,
                     'description' => 'Food ordered by ' . auth()->user()->name ,
                 ]);
+            }
+            $order= $this->addToOrdersTable($request);
+        
+            if ($order) {
+                $this->addToItemOrderTable($order);
             }
             
             // $user=User::select('email')->where('role', 'admin')->get();
