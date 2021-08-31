@@ -8,22 +8,13 @@
             <h5 class="footer-modern-title">Gallery</h5>
             <div class="row row-10 gutters-10" data-lightgallery="group">
               <div class="col-4 col-sm-2 col-lg-4">
-                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="images/grid-gallery-footer-1-1200x800-original.jpg" data-lightgallery="item"><img src="images/grid-gallery-1-93x93.jpg" alt="" width="93" height="93"/></a>
+                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="" data-lightgallery="item"><img src="{{ asset('assets/img/biryani.jpg') }}" alt="" width="93" height="93"/></a>
               </div>
               <div class="col-4 col-sm-2 col-lg-4">
-                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="images/grid-gallery-footer-2-1200x800-original.jpg" data-lightgallery="item"><img src="images/grid-gallery-2-93x93.jpg" alt="" width="93" height="93"/></a>
+                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="" data-lightgallery="item"><img src="{{ asset('assets/img/biryani1.jpg') }}" alt="" width="93" height="93"/></a>
               </div>
               <div class="col-4 col-sm-2 col-lg-4">
-                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="images/grid-gallery-footer-3-1200x800-original.jpg" data-lightgallery="item"><img src="images/grid-gallery-3-93x93.jpg" alt="" width="93" height="93"/></a>
-              </div>
-              <div class="col-4 col-sm-2 col-lg-4">
-                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="images/grid-gallery-footer-4-1200x800-original.jpg" data-lightgallery="item"><img src="images/grid-gallery-4-93x93.jpg" alt="" width="93" height="93"/></a>
-              </div>
-              <div class="col-4 col-sm-2 col-lg-4">
-                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="images/grid-gallery-footer-5-1200x800-original.jpg" data-lightgallery="item"><img src="images/grid-gallery-5-93x93.jpg" alt="" width="93" height="93"/></a>
-              </div>
-              <div class="col-4 col-sm-2 col-lg-4">
-                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="images/grid-gallery-footer-6-1200x800-original.jpg" data-lightgallery="item"><img src="images/grid-gallery-6-93x93.jpg" alt="" width="93" height="93"/></a>
+                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="" data-lightgallery="item"><img src="{{ asset('assets/img/biryani2.jpg') }}" alt="" width="93" height="93"/></a>
               </div>
             </div>
           </div>
@@ -31,20 +22,13 @@
         <div class="col-sm-6 col-md-7 col-lg-5 wow fadeInRight" data-wow-delay=".1s">
           <h5 class="footer-modern-title">Quick Links</h5>
           <ul class="footer-modern-list footer-modern-list-2 d-sm-inline-block d-md-block">
-            <li><a href="our-team.html">Our Team</a></li>
-            <li><a href="grid-shop.html">New Products</a></li>
-            <li><a href="blog-list.html">Blog</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
-            <li><a href="#">Smoothies</a></li>
-            <li><a href="#">Energy Bowls</a></li>
-            <li><a href="#">Juices</a></li>
-            <li><a href="#">Ingredients</a></li>
-            <li><a href="#">Delivery</a></li>
+            <li><a href="{{ route('about') }}">About Us</a></li>
+            <li><a href="{{ route('menu') }}">Menu</a></li>
+            <li><a href="{{ route('allItems') }}">Items</a></li>
+            
           </ul>
         </div>
-        <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow fadeInRight" data-wow-delay=".2s">
+        {{-- <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 wow fadeInRight" data-wow-delay=".2s">
           <h5 class="footer-modern-title">Get in touch</h5>
           <ul class="contacts-creative">
             <li>
@@ -73,7 +57,7 @@
             <li><a class="icon mdi mdi-google-plus icon-xxs" href="#"></a></li>
             <li><a class="icon mdi mdi-skype icon-xxs" href="#"></a></li>
           </ul>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>

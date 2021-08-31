@@ -22,7 +22,7 @@
                 <!-- Quote Classic Big-->
                 <article class="quote-classic-big inset-xl-right-30">
                 <div class="heading-3 text-transform-capitalize quote-classic-big-text">
-                    <div class="q">The best food store for vegans</div>
+                    <div class="q">The best biryani house</div>
                 </div>
                 </article>
                 <!-- Bootstrap tabs-->
@@ -38,16 +38,13 @@
                 <!-- Tab panes-->
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="tabs-1-1">
-                    <p>Cum nomen prarere, omnes peses amor pius, rusticus racanaes. Ubi est mirabilis gemna? Cum gabalium velum, omnes fugaes</p>
-                    <p>Ubi est peritus devatio? A falsis, adelphis peritus apolloniates. Est raptus clabulare, cesaris. Cum pulchritudine manducare, omnes genetrixes captis bassus</p>
+                    <p>Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, and meat usually that of chicken, goat, lamb, prawn, fish, and sometimes, in addition, eggs or vegetables such as potatoes in certain regional varieties</p>
                     </div>
                     <div class="tab-pane fade" id="tabs-1-2">
-                    <p>Vae. Dexter fiscina aliquando vitares animalis est. Nunquam convertam bulla. Cum pars prarere, omnes seculaes</p>
-                    <p>Navis dexter historia est. Luba, homo, et indictio. Emeritis eposs ducunt ad animalis. Cum solem assimilant, omnes byssuses vitare clemens, secundus nixuses.</p>
+                    <p>Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, and meat usually that of chicken, goat, lamb, prawn, fish, and sometimes, in addition, eggs or vegetables such as potatoes in certain regional varieties</p>
                     </div>
                     <div class="tab-pane fade" id="tabs-1-3">
-                    <p>A falsis, historia primus gallus. Est bassus tabes, cesaris. Gallus de mirabilis agripeta, locus mens! Primus ratione</p>
-                    <p>Cur eleates accelerare? Heu. Ecce, superbus onus! Demolitione secundus homo est. Cum cacula congregabo, omnes coordinataees acquirere dexter, flavum galataees.</p>
+                    <p>Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, and meat usually that of chicken, goat, lamb, prawn, fish, and sometimes, in addition, eggs or vegetables such as potatoes in certain regional varieties</p>
                     </div>
                 </div>
                 </div><a class="button button-lg button-shadow-2 button-primary button-zakaria" href="#">Read more</a>
@@ -118,23 +115,7 @@
             </div>
             </div>
         </div>
-        <div class="slick-slider child-carousel" data-items="1" data-sm-items="2" data-md-items="2" data-lg-items="3" data-xl-items="3" data-xxl-items="4" data-arrows="true" data-for="#carousel-parent-2" data-loop="false" data-focus-select="false">
-            <div class="item">
-            <div class="heading-5 box-info-classic-year">1999</div>
-            </div>
-            <div class="item">
-            <div class="heading-5 box-info-classic-year">2003</div>
-            </div>
-            <div class="item">
-            <div class="heading-5 box-info-classic-year">2007</div>
-            </div>
-            <div class="item">
-            <div class="heading-5 box-info-classic-year">2015</div>
-            </div>
-            <div class="item">
-            <div class="heading-5 box-info-classic-year">2021</div>
-            </div>
-        </div>
+        
         </div>
     </div>
     </section>
