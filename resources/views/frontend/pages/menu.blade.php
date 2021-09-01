@@ -44,45 +44,6 @@
                     </form> --}}
                     </div>
                     <div class="aside-item col-sm-6 col-lg-12">
-                    <h6 class="aside-title">Popular products</h6>
-                    <div class="row row-10 row-lg-20 gutters-10">
-                        <div class="col-4 col-sm-6 col-md-12">
-                        <!-- Product Minimal-->
-                        <article class="product-minimal">
-                            <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
-                            <div class="unit-left"><a class="product-minimal-figure" href="single-product.html"><img src="images/product-mini-1-106x104.jpg" alt="" width="106" height="104"/></a></div>
-                            <div class="unit-body">
-                                <p class="product-minimal-title"><a href="single-product.html">Sparkling Drinks</a></p>
-                                <p class="product-minimal-price">$13.00</p>
-                            </div>
-                            </div>
-                        </article>
-                        </div>
-                        <div class="col-4 col-sm-6 col-md-12">
-                        <!-- Product Minimal-->
-                        <article class="product-minimal">
-                            <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
-                            <div class="unit-left"><a class="product-minimal-figure" href="single-product.html"><img src="images/product-mini-2-106x104.jpg" alt="" width="106" height="104"/></a></div>
-                            <div class="unit-body">
-                                <p class="product-minimal-title"><a href="single-product.html">Tomatoes</a></p>
-                                <p class="product-minimal-price">$16.00</p>
-                            </div>
-                            </div>
-                        </article>
-                        </div>
-                        <div class="col-4 col-sm-6 col-md-12">
-                        <!-- Product Minimal-->
-                        <article class="product-minimal">
-                            <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
-                            <div class="unit-left"><a class="product-minimal-figure" href="single-product.html"><img src="images/product-mini-3-106x104.jpg" alt="" width="106" height="104"/></a></div>
-                            <div class="unit-body">
-                                <p class="product-minimal-title"><a href="single-product.html">Carrots</a></p>
-                                <p class="product-minimal-price">$23.00</p>
-                            </div>
-                            </div>
-                        </article>
-                        </div>
-                    </div>
                     </div>
                 </div>
                 </div>
