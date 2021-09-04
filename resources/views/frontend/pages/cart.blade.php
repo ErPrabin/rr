@@ -32,7 +32,7 @@
                                                 width="146" height="132" /></a><a class="table-cart-link"
                                             href="single-product.html">{{ $row->name }}</a>
                                     </td>
-                                    <td>$. {{ $row->price }}</td>
+                                    <td>$ {{ $row->price }}</td>
                                     <td>
                                         <div class="">
                                             <div class="row">
@@ -50,7 +50,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="price"> $. {{ $row->price * $row->qty }}</td>
+                                    <td class="price"> $ {{ $row->price * $row->qty }}</td>
                                     <td>
                                         <form action="{{ route('cart.destroy', $row->rowId) }}" method="POST">
                                             {{ method_field('DELETE') }}

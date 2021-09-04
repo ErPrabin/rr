@@ -73,8 +73,8 @@
                                 </div>
                                 <h5 class="product-title"><a href="{{ route('singleItem',$item->id) }}">{{ $item->name }}</a></h5>
                                 <div class="product-price-wrap">
-                                    <div class="product-price product-price-old">Rs. {{ $item->price }}</div>
-                                    <div class="product-price">Rs. {{ $item->price }}</div>
+                                    <div class="product-price product-price-old">$ {{ $item->price }}</div>
+                                    <div class="product-price">$ {{ $item->price }}</div>
                                 </div>
                                 </div><span class="product-badge product-badge-sale">Sale</span>
                                 <div class="product-button-wrap">

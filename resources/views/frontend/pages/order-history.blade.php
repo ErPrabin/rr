@@ -27,7 +27,7 @@
                                 <li><span>Item(s)</span></li>
                                 @foreach ($order->items as $item)
                                     <li>
-                                        <span> {{ $item->name }} </span>{{ round($item->price,2) }}, 
+                                        <span> {{ $item->name }} </span>$ {{ round($item->price,2) }}, 
                                         <span>Qty:</span> {{ $item->pivot->quantity }} </li>
                                 @endforeach  
                             </ul>

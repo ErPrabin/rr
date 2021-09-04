@@ -13,7 +13,7 @@
                             <h5 class="product-title"><a href="single-product.html">{{ $item->name }}</a></h5>
                             <div class="product-price-wrap">
                                 {{-- <div class="product-price product-price-old">$30.00</div> --}}
-                                <div class="product-price"> ${{ $item->price }}</div>
+                                <div class="product-price"> $ {{ $item->price }}</div>
                             </div>
                         </div><span
                             class="product-badge product-badge-sale {{ $item->veg == 'Veg' ? 'veg' : '' }}">{{ $item->veg }}</span>

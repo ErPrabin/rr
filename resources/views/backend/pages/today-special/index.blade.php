@@ -30,7 +30,7 @@
                                     @foreach ($data as $d)
                                         <tr>
                                             <td>{{ $d->name }}</td>
-                                            <td>{{ $d->price }}</td>
+                                            <td>$ {{ $d->price }}</td>
                                             <td>{!! $d->description !!}</td>
                                             <td>{{ $d->delivery_time }}</td>
                                             <td>

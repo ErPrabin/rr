@@ -15,7 +15,7 @@ Your payment has been done successfully with amount of NPR {{ round($order->bill
 <br>
 @foreach ($order->items as $item )
     Name: {{ $item->name }} <br>
-    Price: {{ round($item->price,2) }} <br>
+    Price: $ {{ round($item->price,2) }} <br>
     Quantity: {{ $item->pivot->quantity }} <br >
 <br><br>
 @endforeach

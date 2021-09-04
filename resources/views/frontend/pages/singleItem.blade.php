@@ -44,7 +44,7 @@
                     <div class="single-product">
                         <h3 class="text-transform-none fw-medium">{{ $item->name }}</h3>
                         <div class="group-md group-middle">
-                            <div class="single-product-price">${{ $item->price }}</div>
+                            <div class="single-product-price">$ {{ $item->price }}</div>
                             <div class="single-product-rating"><span class="icon mdi mdi-star"></span><span
                                     class="icon mdi mdi-star"></span><span class="icon mdi mdi-star"></span><span
                                     class="icon mdi mdi-star"></span><span class="icon mdi mdi-star-half"></span></div>
@@ -207,7 +207,7 @@
                                 <h5 class="product-title"><a href="single-product.html">{{ $data->name }}</a></h5>
                                 <div class="product-price-wrap">
                                     {{-- <div class="product-price product-price-old">$30.00</div> --}}
-                                    <div class="product-price">${{ $data->price }}</div>
+                                    <div class="product-price">$ {{ $data->price }}</div>
                                 </div>
                             </div><span class="product-badge product-badge-sale">Sale</span>
                             <div class="product-button-wrap">
