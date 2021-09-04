@@ -23,7 +23,7 @@
                             <ul class="pricing-classic-list">
                                 <li><span>Order ID:</span>{{ $order->id }}</li>
                                 <li><span>Name:</span>{{ $order->name }}</li>
-                                <li><span>Total</span> {{ $order->total }}</li>
+                                <li><span>Total</span>$ {{ $order->total }}</li>
                                 <li><span>Item(s)</span></li>
                                 @foreach ($order->items as $item)
                                     <li>

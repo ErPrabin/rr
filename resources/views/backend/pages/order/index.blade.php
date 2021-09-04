@@ -32,7 +32,7 @@
                                                     <br>
                                                 @endforeach
                                             </td>
-                                            <td>{!! $d->total !!}</td>
+                                            <td>$ {{ $d->total }}</td>
                                             <td> <p class="badge {{ $d->status=='pending'?'badge-danger':"badge-primary" }} ">{{ $d->status }}</p></td>
                                            
                                             <td>

@@ -9,7 +9,7 @@ Payment has also been successfully donewith amount of NPR{{ round($order->billin
 **Order Email:** {{ $order->email }} <br>
 **Order Billing Name:** {{ $order->name }} 
 <br>
-**Order Total:** {{ round($order->total,2) }}
+**Order Total:** $ {{ round($order->total,2) }}
 
 **Items Ordered**
 <br>
