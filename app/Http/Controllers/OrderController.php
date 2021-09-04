@@ -15,6 +15,8 @@ use App\Notifications\OrderConfirmed;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\OrderPlacedNotification;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use Srmklive\PayPal\Services\ExpressCheckout;
 
 class OrderController extends Controller
 {
@@ -70,17 +72,14 @@ class OrderController extends Controller
             ]);
         }
 
-        DB::beginTransaction();
-        try {
-            
-
-            
-            if ($request->payment_gateway == "card") {
-                $stripe = new \Stripe\StripeClient(
-                    env('STRIPE_SECRET')
-                );
+        return DB::transaction(function () use (&$request) {
+            try {
+                if ($request->payment_gateway == "card") {
+                    $stripe = new \Stripe\StripeClient(
+                        env('STRIPE_SECRET')
+                    );
                 
-                $token = $stripe->tokens->create([
+                    $token = $stripe->tokens->create([
                     'card' => [
                     'number' => $request->card_number,
                     'exp_month' => $request->expiry_month,
@@ -89,34 +88,37 @@ class OrderController extends Controller
                     ],
                 ]);
                 
-                $charge = $stripe->charges->create([
+                    $charge = $stripe->charges->create([
                     'amount' =>  $this->getNumbers()->get('newTotal') * 100,
                     'currency' => 'aud',
                     'source' => $token,
                     'description' => 'Food ordered by ' . auth()->user()->name ,
                 ]);
-            }
-            $order= $this->addToOrdersTable($request);
+                }
+                $order= $this->addToOrdersTable($request);
         
-            if ($order) {
-                $this->addToItemOrderTable($order);
+                if ($order) {
+                    $this->addToItemOrderTable($order);
+                }
+                $user=User::select('email')->where('role', 'admin')->get();
+                Notification::send($user, new OrderPlacedNotification($order));
+                Notification::send(Auth::user(), new OrderConfirmed($order));
+                if ($request->payment_gateway == "paypal") {
+                    // dd($order->id);
+                    $this->getExpressCheckout($order->id);
+                }
+            } catch (\Exception $e) {
+                // DB::rollback();
+                return redirect()->back()->with('error', 'Unable to Place the order');
             }
-            
-            // $user=User::select('email')->where('role', 'admin')->get();
-            // Notification::send($user, new OrderPlacedNotification($order));
-            // Notification::send(Auth::user(), new OrderConfirmed($order));
-            
-            DB::commit();
-        } catch (\Exception $e) {
-            // DB::rollback();
-            return redirect()->back()->with('error', 'Unable to Place the order');
-        }
         
-        Cart::instance('default')->destroy();
-        session()->forget('coupon');
+            Cart::instance('default')->destroy();
+            session()->forget('coupon');
 
-        return redirect()->route('order.show', $order->id)->with('Success', 'Your order has been confirmed! DONT forget to check your email.');
+            return redirect()->route('order.show', $order->id)->with('Success', 'Your order has been confirmed! DONT forget to check your email.');
+        });
     }
+    
 
     /**
      * Store ORDER Details in database
@@ -151,6 +153,43 @@ class OrderController extends Controller
     }
 
 
+    public function getExpressCheckout($orderId)
+    {
+        $checkoutData = $this->checkoutData();  //function call
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $token = $provider->getAccessToken();
+        $provider->setAccessToken($token);
+        $response= $provider->createOrder([
+            'intent'=> 'CAPTURE',
+            'purchase_units'=> [[
+                'reference_id' => 'transaction_test_number'. $orderId,
+                'data' => $checkoutData,
+                'amount'=> [
+                    'currency_code'=> 'USD',
+                    'value'=> $this->getNumbers()->get('newTotal')
+                ]
+            ]],
+            'application_context' => [
+                'cancel_url' => route('paypal.cancel'),
+                'return_url' => route('paypal.success', $orderId)
+            ]
+        ]);
+        return redirect($response['links'][1]['href'])->send();
+    }
+
+    private function checkoutData()
+    {
+        $cart= Cart::content();
+        return array_map(function ($item) {
+            return[
+                'name'=> $item['name'],
+                'price'=> $item['price'],
+                'qty'=> $item['qty'],
+            ];
+        }, $cart->toarray());
+    }
+
     /**
      * Store a newly created order in database
      *
@@ -158,20 +197,8 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response $order
     */
 
-    protected function addToItemOrderTable($order)  //helper function banako
+    protected function addToItemOrderTable($order)
     {
-        //insert into pivot table
-        // foreach (Cart::content() as $item) {
-        //     OrderProduct::create([
-        //         'order_id'=> $order->id,
-        //         'product_id'=>$item->id,
-        //         'quantity'=> $item->qty,
-        //         'original_price' => $item->options->original_price ? $item->options->original_price : 0,
-        //         'discount'=> $item->options->discount,
-        //         'discounted_price' => $item->options->discounted_price,
-        //         'tax_amount' => $item->options->tax ,
-        //     ]);
-        // }
         foreach (Cart::content() as $item) {
             ItemOrder::create([
                 'order_id'=> $order->id,
@@ -228,6 +255,4 @@ class OrderController extends Controller
     {
         //
     }
-
-    
 }

@@ -170,6 +170,15 @@
                   </div>
                 </div>
               </div>
+
+              <div class="radio-panel">
+                <label class="radio-inline">
+                  <input name="payment_gateway" value="paypal" type="radio">Paypal
+                </label>
+                <div class="radio-panel-content">
+                  <p>Pay via Paypal</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-md-10 col-lg-6">

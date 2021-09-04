@@ -32,8 +32,7 @@ Route::group([
     foreach (config('menu.menu') as $menu) {
         Route::resource($menu['slug'], str_replace(' ', '', ucwords(str_replace("-", " ", $menu['slug']) . 'Controller')));
     }
-    Route::get('changestatus/{id}','OrderController@changeStatus')->name('changestatus');
-
+    Route::get('changestatus/{id}', 'OrderController@changeStatus')->name('changestatus');
 });
 Route::view('profile', 'profile.show')->name('profile');
 
@@ -51,31 +50,6 @@ Route::get('/all-items', [FrontEndController::class, 'allItems'])->name('allItem
 Route::get('/single-item/{id}', [FrontEndController::class, 'singleItem'])->name('singleItem')->whereNumber('id');
 
 
-// //  ------------------------
-// //  ROUTE FOR USER INFO
-// //  ------------------------
-
-// //Route::get('profile/edit','UserController@edit');
-// Route::get('profile/edit', 'UserController@edit')->name('userinfo.edit');
-
-// Route::post('profile/edit', 'UserController@userinfoupdate')->name('userinfo.edit');
-
-// Route::get('password/edit', 'UserController@passwordedit')->name('password.edit');
-
-// Route::post('password/edit', 'UserController@password_edit')->name('password.edit');
-
-// Route::get('/profile/picture/update', 'UserController@imageupload')->name('propicupdate');
-
-// Route::post('/profile/picture/update', 'UserController@imageupdate')->name('propicupdate');
-
-// Route::get('/profile', 'UserController@profile')->name('profile');
-
-
-//  ------------------------
-//  ROUTE FOR ITEMS
-//  ------------------------
-
-
 // Route::get('/search', 'ItemController@search')->name('item.search');
 
 
@@ -84,22 +58,6 @@ Route::get('/single-item/{id}', [FrontEndController::class, 'singleItem'])->name
 //  ------------------------
 
 Route::resource('cart', 'CartController');
-
-// Route::post('/cart/switchToSaveForLater/{id}', 'CartController@switchToSaveForLater')->name('cart.To.saveForLater');
-
-
-// //  ------------------------
-// //  ROUTE FOR SAVE FOR LATER
-// //  ------------------------
-
-// Route::resource('saveForLater', 'SaveForLaterController');
-
-// Route::post('/wishlist/switchToCart/{id}', 'SaveForLaterController@switchToCart')->name('wishlist.To.cart');
-
-// Route::get('/empty/saveforlater', function () {
-//     Cart::instance('saveForLater')->destroy();
-// })->name('empty.saveForLater');
-
 
 //  ------------------------
 //  ROUTE FOR CHECKOUT
@@ -114,12 +72,10 @@ Route::get('/thankyou', 'CheckoutController@thankyou')->name('thankyou');
 
 Route::resource('order', 'OrderController');
 
-// //  ------------------------
-// //  ROUTE FOR COUPOUNS
-// //  ------------------------
 
-// Route::resource('coupons', 'CouponsController');
-// Route::post('/coupons/delete', 'CouponsController@delete')->name('coupons.delete');
+//  -------------------------------
+//  ROUTE FOR ORDERS AND PAYMENTS
+//  -------------------------------
 
-
-// Route::get('/my-orders', 'OrderController@index')->name('orders.index');
+Route::get('/paypal/checkout-success/{success}', 'PayPalPaymentController@paymentSuccess')->name('paypal.success');
+Route::get('/paypal/checkout-cancel', 'PayPalPaymentController@cancelPage')->name('paypal.cancel');
