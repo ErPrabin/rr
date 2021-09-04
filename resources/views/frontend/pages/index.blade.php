@@ -30,5 +30,5 @@
 
     {{-- @include('frontend.partials.blog-post') --}}
 
-    @include('frontend.partials.slogan')
+    {{-- @include('frontend.partials.slogan') --}}
 @endsection
