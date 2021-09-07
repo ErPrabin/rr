@@ -32,7 +32,7 @@
                                                 width="146" height="132" /></a><a class="table-cart-link"
                                             href="single-product.html">{{ $row->name }}</a>
                                     </td>
-                                    <td>$ {{ $row->price }}</td>
+                                    <td>${{ $row->price }}</td>
                                     <td>
                                         <div class="">
                                             <div class="row">
@@ -85,7 +85,7 @@
                         </div> --}}
                             <div class="group-md group-middle">
                                 <div class="heading-5 fw-medium text-gray-500">Total</div>
-                                <div class="heading-3 fw-normal">$. {{ $newTotal }}</div>
+                                <div class="heading-3 fw-normal">${{ $newTotal }}</div>
                             </div>
                         </div>
                         <a class="button button-lg button-primary button-zakaria"

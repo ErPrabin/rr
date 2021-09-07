@@ -129,9 +129,9 @@
             <h3 class="fw-medium">Payment methods</h3>
             <div class="box-radio">
               <div class="radio-panel">
-                <label class="radio-inline active">
+                {{-- <label class="radio-inline active">
                   <input name="payment_gateway" value="cod" type="radio" checked>Cash on Delivery
-                </label>
+                </label> --}}
                 <div class="radio-panel-content">
                   <p>Make your payment after your order has been received.</p>
                 </div>
@@ -188,15 +188,15 @@
                 <tbody>
                   <tr>
                     <td>Cart Subtotal</td>
-                    <td>Rs. {{ $newTotal }}</td>
+                    <td>${{ $newTotal }}</td>
                   </tr>
-                  <tr>
+                  {{-- <tr>
                     <td>Shipping</td>
                     <td>Free</td>
-                  </tr>
+                  </tr> --}}
                   <tr>
                     <td>Total</td>
-                    <td>Rs. {{ $newTotal }}</td>
+                    <td>${{ $newTotal }}</td>
                   </tr>
                 </tbody>
               </table>
