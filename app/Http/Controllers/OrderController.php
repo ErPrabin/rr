@@ -100,9 +100,9 @@ class OrderController extends Controller
                 if ($order) {
                     $this->addToItemOrderTable($order);
                 }
-                $user=User::select('email')->where('role', 'admin')->get();
-                Notification::send($user, new OrderPlacedNotification($order));
-                Notification::send(Auth::user(), new OrderConfirmed($order));
+                // $user=User::select('email')->where('role', 'admin')->get();
+                // Notification::send($user, new OrderPlacedNotification($order));
+                // Notification::send(Auth::user(), new OrderConfirmed($order));
                 if ($request->payment_gateway == "paypal") {
                     // dd($order->id);
                     $this->getExpressCheckout($order->id);

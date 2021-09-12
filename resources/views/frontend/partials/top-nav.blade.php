@@ -23,7 +23,7 @@
             <ul class="contacts-classic">
             <li><span class="contacts-classic-title">Call us:</span> <a class="link" href="tel:#">+61 (844) 123 456 78</a>
             </li>
-            <li><a href="mailto:#">info@demolink.org</a></li>
+            <li><a href="mailto:#"></a></li>
             </ul><a class="rd-navbar-basket rd-navbar-basket-mobile fl-bigmug-line-shopping202" href="#"><span>2</span></a>
         </div>
         <!-- RD Navbar Panel-->
