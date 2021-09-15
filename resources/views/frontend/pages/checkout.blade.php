@@ -109,11 +109,11 @@
                       <td>
                           <a class="table-cart-figure" href="single-product.html"><img src="{{ asset('/images/item/'. $row->options->image ) }}" alt="" width="146" height="132"/></a><a class="table-cart-link" href="single-product.html">{{ $row->name }}</a>
                       </td>
-                      <td>Rs. {{ $row->price }}</td>
+                      <td>$.{{ $row->price }}</td>
                       <td>
                         {{ $row->qty }}
                       </td>
-                      <td class="price"> Rs. {{ $row->price * $row->qty }}</td>
+                      <td class="price">$.{{ $row->price * $row->qty }}</td>
                     </tr>
                 @endforeach
             </tbody>
