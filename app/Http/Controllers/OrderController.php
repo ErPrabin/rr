@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendSMS;
 use Exception;
 use App\Models\User;
 use App\Models\Order;
@@ -43,6 +44,9 @@ class OrderController extends Controller
     {
         //
     }
+     public function sendSms(){
+       SendSMS::dispatch('9779805990645')->delay(now()->addSeconds(20));
+     }
 
     /**
      * Store a newly created resource in storage.

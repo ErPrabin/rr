@@ -19,7 +19,8 @@
         "nicolaslopezj/searchable": "^1.13",
         "orangehill/iseed": "^3.0",
         "srmklive/paypal": "~3.0",
-        "stripe/stripe-php": "^7.94"
+        "stripe/stripe-php": "^7.94",
+        "vonage/client": "^2.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

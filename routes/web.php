@@ -35,6 +35,7 @@ Route::group([
     Route::get('changestatus/{id}', 'OrderController@changeStatus')->name('changestatus');
 });
 Route::view('profile', 'profile.show')->name('profile');
+Route::get('sendsms','OrderController@sendSms');
 
 
 //santoshi
