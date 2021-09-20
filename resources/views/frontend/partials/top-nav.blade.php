@@ -92,8 +92,8 @@
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('allItems') }}">Items</a>
                 </li>
-                <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('gallery') }}">Gallery</a>
-                </li>
+                {{-- <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('gallery') }}">Gallery</a>
+                </li> --}}
                 <li class="rd-nav-item"><a class="rd-nav-link" href="grid-shop.html">Shop</a>
                     <ul class="rd-menu rd-navbar-dropdown">
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="{{ route('cart.index') }}">Cart Page</a>

@@ -47,9 +47,9 @@
                     </div>
                 </div>
                 </div>
-                <div class="col-lg-8 col-xl-9">
+                <div class="col-lg-12 col-xl-12">
                     <div class="product-top-panel group-md">
-                        <p class="product-top-panel-title">Showing 1–12 of 28 results</p>
+                        {{-- <p class="product-top-panel-title">Showing 1–12 of 28 results</p> --}}
                         {{-- <div>
                             <div class="group-sm group-middle">
                                 <div class="product-top-panel-sorting">
@@ -73,7 +73,7 @@
                                 <div class="product-figure"><img src="{{ asset('images/menu/' . $menu->image) }}" alt="" width="196" height="134"/>
                                 </div>
                                 <h5 class="product-title"><a href="{{ route('itemByMenu',$menu->id) }}">{{ $menu->name }}</a></h5>
-                                </div><span class="product-badge product-badge-sale">Sale</span>
+                                </div><span class="product-badge product-badge-sale">Menu</span>
                                 <div class="product-button-wrap">
                                 <div class="product-button"><a class="button button-secondary button-zakaria fl-bigmug-line-search74" href="single-product.html"></a></div>
                                 <div class="product-button"><a class="button button-primary button-zakaria fl-bigmug-line-shopping202" href="cart-page.html"></a></div>
@@ -82,7 +82,7 @@
                         </div>
                         @endforeach
                     </div>
-                    <div class="pagination-wrap">
+                    {{-- <div class="pagination-wrap">
                         <!-- Bootstrap Pagination-->
                         <nav aria-label="Page navigation">
                         <ul class="pagination">
@@ -93,7 +93,7 @@
                             <li class="page-item page-item-control"><a class="page-link" href="#" aria-label="Next"><span class="icon" aria-hidden="true"></span></a></li>
                         </ul>
                         </nav>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
