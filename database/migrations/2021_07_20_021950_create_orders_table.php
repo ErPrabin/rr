@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
                 $table->date('orderDate');
                 $table->string('name');
                 $table->string('email');
-                $table->unsignedInteger('phone');
+                $table->string('phone');
                 $table->string('address');
                 $table->string('city');
                 $table->integer('discount')->default(0);

@@ -45,7 +45,7 @@ class OrderController extends Controller
         //
     }
      public function sendSms(){
-       SendSMS::dispatch('9779805990645')->delay(now()->addSeconds(20));
+       SendSMS::dispatch(auth()->user()->phone_number)->delay(now()->addSeconds(20));
      }
 
     /**
@@ -76,7 +76,7 @@ class OrderController extends Controller
             ]);
         }
 
-        return DB::transaction(function () use (&$request) {
+        // return DB::transaction(function () use (&$request) {
             try {
                 if ($request->payment_gateway == "card") {
                     $stripe = new \Stripe\StripeClient(
@@ -111,8 +111,10 @@ class OrderController extends Controller
                     // dd($order->id);
                     $this->getExpressCheckout($order->id);
                 }
+                $this->sendSms();
             } catch (\Exception $e) {
                 // DB::rollback();
+                dd($e);
                 return redirect()->back()->with('error', 'Unable to Place the order');
             }
         
@@ -120,7 +122,7 @@ class OrderController extends Controller
             session()->forget('coupon');
 
             return redirect()->route('order.show', $order->id)->with('Success', 'Your order has been confirmed! DONT forget to check your email.');
-        });
+        // });
     }
     
 
