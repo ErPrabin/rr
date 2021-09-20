@@ -53,16 +53,16 @@
                 <div class="slick-slider-1 inset-xl-left-35">
                 <!-- Slick Carousel-->
                 <div class="slick-slider carousel-parent slick-nav-1 slick-nav-2" id="carousel-parent" data-items="1" data-autoplay="true" data-slide-effect="true" data-child="#child-carousel" data-for="#child-carousel" data-arrows="true">
-                    <div class="item"><img src="{{ asset('images/about-1-634x373.jpg') }}" alt="" width="634" height="373"/>
+                    <div class="item"><img src="{{ asset('assets/img/biryani.jpg') }}" alt="" width="634" height="373"/>
                     </div>
-                    <div class="item"><img src="{{ asset('images/about-2-634x373.jpg') }}" alt="" width="634" height="373"/>
+                    <div class="item"><img src="{{ asset('assets/img/biryani.jpg') }}" alt="" width="634" height="373"/>
                     </div>
-                    <div class="item"><img src="{{ asset('images/about-3-634x373.jpg') }}" alt="" width="634" height="373"/>
+                    <div class="item"><img src="{{ asset('assets/img/biryani.jpg') }}" alt="" width="634" height="373"/>
                     </div>
-                    <div class="item"><img src="{{ asset('images/about-4-634x373.jpg') }}" alt="" width="634" height="373"/>
+                    <div class="item"><img src="{{ asset('assets/img/biryani.jpg') }}" alt="" width="634" height="373"/>
                     </div>
                 </div>
-                <div class="slick-slider child-carousel" id="child-carousel" data-items="3" data-sm-items="4" data-md-items="4" data-lg-items="4" data-xl-items="4" data-xxl-items="4" data-for="#carousel-parent">
+                {{-- <div class="slick-slider child-carousel" id="child-carousel" data-items="3" data-sm-items="4" data-md-items="4" data-lg-items="4" data-xl-items="4" data-xxl-items="4" data-for="#carousel-parent">
                     <div class="item"><img src="{{ asset('images/about-1-143x114.jpg') }}" alt="" width="143" height="114"/>
                     </div>
                     <div class="item"><img src="{{ asset('images/about-2-143x114.jpg') }}" alt="" width="143" height="114"/>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="item"><img src="{{ asset('images/about-4-143x114.jpg') }}" alt="" width="143" height="114"/>
                     </div>
-                </div>
+                </div> --}}
                 </div>
             </div>
             </div>
