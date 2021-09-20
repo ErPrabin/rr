@@ -44,6 +44,8 @@ class OrderController extends Controller
     {
         //
     }
+
+    /** Send SMS with Delay */
      public function sendSms(){
        SendSMS::dispatch(auth()->user()->phone_number)->delay(now()->addSeconds(20));
      }
@@ -76,7 +78,7 @@ class OrderController extends Controller
             ]);
         }
 
-        // return DB::transaction(function () use (&$request) {
+        return DB::transaction(function () use (&$request) {
             try {
                 if ($request->payment_gateway == "card") {
                     $stripe = new \Stripe\StripeClient(
@@ -114,7 +116,6 @@ class OrderController extends Controller
                 $this->sendSms();
             } catch (\Exception $e) {
                 // DB::rollback();
-                dd($e);
                 return redirect()->back()->with('error', 'Unable to Place the order');
             }
         
@@ -122,7 +123,7 @@ class OrderController extends Controller
             session()->forget('coupon');
 
             return redirect()->route('order.show', $order->id)->with('Success', 'Your order has been confirmed! DONT forget to check your email.');
-        // });
+        });
     }
     
 
