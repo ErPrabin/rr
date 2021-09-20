@@ -36,7 +36,7 @@ class SendSMS implements ShouldQueue
         $client = new \Vonage\Client($basic);
 
         $response = $client->sms()->send(
-            new \Vonage\SMS\Message\SMS($this->number, "SmartCric", 'A text message sent using the Nexmo SMS API')
+            new \Vonage\SMS\Message\SMS($this->number, "SmartCric", 'Your Food Has Been Packed.')
         );
     }
 }
