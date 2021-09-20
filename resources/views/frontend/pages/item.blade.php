@@ -47,9 +47,9 @@
                     </div>
                 </div>
                 </div>
-                <div class="col-lg-8 col-xl-9">
+                <div class="col-lg-12 col-xl-12">
                 <div class="product-top-panel group-md">
-                    <p class="product-top-panel-title">Showing 1–12 of 28 results</p>
+                    {{-- <p class="product-top-panel-title">Showing 1–12 of 28 results</p> --}}
                     {{-- <div>
                         <div class="group-sm group-middle">
                             <div class="product-top-panel-sorting">
@@ -65,42 +65,48 @@
                 </div>
                 <div class="row row-30 row-lg-50">
                     @foreach ($items as $item)
-                        <div class="col-sm-6 col-md-4 col-lg-6 col-xl-4">
-                            <!-- Product-->
-                            <article class="product">
-                                <div class="product-body">
-                                <div class="product-figure"><img src="{{ asset('images/item/' . $item->image) }}" alt="" width="196" height="134"/>
-                                </div>
-                                <h5 class="product-title"><a href="{{ route('singleItem',$item->id) }}">{{ $item->name }}</a></h5>
-                                <div class="product-price-wrap">
-                                    <div class="product-price product-price-old">$ {{ $item->price }}</div>
-                                    <div class="product-price">$ {{ $item->price }}</div>
-                                </div>
-                                </div><span class="product-badge product-badge-sale">Sale</span>
-                                <div class="product-button-wrap">
-                                    <div class="product-button">
-                                        <a class="button button-secondary button-zakaria fl-bigmug-line-search74" href="{{ route('singleItem',['id' => $item->id]) }}">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                    </div>
-                                    <div class="product-button">
-                                        <form method="post" action="{{ route('cart.store') }}" enctype="multipart/form">
-                                            @csrf
-                                            <input name="id" type="hidden" class="form-control" value="{{$item->id}}" >
-                                            <input name="name" type="hidden" class="form-control" value="{{$item->name}}" >
-                                            <input name="price" type="hidden" class="form-control" value="{{$item->price}}" >
-                                            <input name="image" type="hidden" class="form-control" value="{{$item->image}}" >
-                                            <button type="submit" class="button button-primary button-zakaria fl-bigmug-line-shopping202">
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </article>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <!-- Product-->
+                    <article class="product wow fadeInRight">
+                        <div class="product-body">
+                            <div class="product-figure"><img src="{{ asset('images/item/' . $item->image) }}" alt=""
+                                    width="196" height="134" />
+                            </div>
+                            <h5 class="product-title"><a href="single-product.html">{{ $item->name }}</a></h5>
+                            <div class="product-price-wrap">
+                                {{-- <div class="product-price product-price-old">$30.00</div> --}}
+                                <div class="product-price"> $ {{ $item->price }}</div>
+                            </div>
+                        </div><span
+                            class="product-badge product-badge-sale {{ $item->veg == 'Veg' ? 'veg' : '' }}">{{ $item->veg }}</span>
+                        <div class="product-button-wrap">
+                            <div class="product-button">
+                                <a class="button button-secondary button-zakaria fl-bigmug-line-search74"
+                                    href="{{ route('singleItem', ['id' => $item->id]) }}">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </div>
+                            <div class="product-button">
+                                <form method="post" action="{{ route('cart.store') }}" enctype="multipart/form">
+                                    @csrf
+                                    <input name="id" type="hidden" class="form-control" value="{{ $item->id }}">
+                                    <input name="name" type="hidden" class="form-control" value="{{ $item->name }}">
+                                    <input name="price" type="hidden" class="form-control" value="{{ $item->price }}">
+                                    <input name="image" type="hidden" class="form-control"
+                                        value="{{ $item->image }}">
+                                    <button type="submit"
+                                        class="button button-primary button-zakaria fl-bigmug-line-shopping202">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
-                    @endforeach
+                    </article>
                 </div>
-                <div class="pagination-wrap">
+
+            @endforeach
+                </div>
+                {{-- <div class="pagination-wrap">
                     <!-- Bootstrap Pagination-->
                     <nav aria-label="Page navigation">
                     <ul class="pagination">
@@ -111,7 +117,7 @@
                         <li class="page-item page-item-control"><a class="page-link" href="#" aria-label="Next"><span class="icon" aria-hidden="true"></span></a></li>
                     </ul>
                     </nav>
-                </div>
+                </div> --}}
                 </div>
             </div>
         </div>
