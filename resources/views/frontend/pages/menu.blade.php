@@ -75,8 +75,8 @@
                                 <h5 class="product-title"><a href="{{ route('itemByMenu',$menu->id) }}">{{ $menu->name }}</a></h5>
                                 </div><span class="product-badge product-badge-sale">Menu</span>
                                 <div class="product-button-wrap">
-                                <div class="product-button"><a class="button button-secondary button-zakaria fl-bigmug-line-search74" href="single-product.html"></a></div>
-                                <div class="product-button"><a class="button button-primary button-zakaria fl-bigmug-line-shopping202" href="cart-page.html"></a></div>
+                                {{-- <div class="product-button"><a class="button button-secondary button-zakaria fl-bigmug-line-search74" href="single-product.html"></a></div>
+                                <div class="product-button"><a class="button button-primary button-zakaria fl-bigmug-line-shopping202" href="cart-page.html"></a></div> --}}
                                 </div>
                             </article>
                         </div>

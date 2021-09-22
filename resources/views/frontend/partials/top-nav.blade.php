@@ -37,7 +37,7 @@
         </div>
         <div class="rd-navbar-aside-element">
             <!-- RD Navbar Search-->
-            <div class="rd-navbar-search rd-navbar-search-2">
+            {{-- <div class="rd-navbar-search rd-navbar-search-2">
             <button class="rd-navbar-search-toggle rd-navbar-fixed-element-3" data-rd-navbar-toggle=".rd-navbar-search"><span></span></button>
             <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
                 <div class="form-wrap">
@@ -47,7 +47,7 @@
                 <button class="rd-search-form-submit fl-bigmug-line-search74" type="submit"></button>
                 </div>
             </form>
-            </div>
+            </div> --}}
             <!-- RD Navbar Basket-->
             <div class="rd-navbar-basket-wrap">
                 <a href="{{ route('cart.index') }}">
@@ -90,8 +90,8 @@
                 </li>
                 <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('menu') }}">Menu</a>
                 </li>
-                <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('allItems') }}">Items</a>
-                </li>
+                {{-- <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('allItems') }}">Items</a>
+                </li> --}}
                 {{-- <li class="rd-nav-item"><a class="rd-nav-link" href="{{ route('gallery') }}">Gallery</a>
                 </li> --}}
                 {{-- <li class="rd-nav-item"><a class="rd-nav-link" href="grid-shop.html">Shop</a>
