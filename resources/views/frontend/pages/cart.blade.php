@@ -65,7 +65,7 @@
                 @endif
             </div>
             <div class="group-xl group-justify justify-content-center justify-content-md-between">
-                <div>
+                {{-- <div>
                     <form class="rd-form rd-mailform rd-form-inline rd-form-coupon">
                         <div class="form-wrap">
                             <input class="form-input form-input-inverse" id="coupon-code" type="text" name="text">
@@ -75,7 +75,7 @@
                             <button class="button button-lg button-secondary button-zakaria" type="submit">Apply</button>
                         </div>
                     </form>
-                </div>
+                </div> --}}
                 <div>
                     <div class="group-xl group-middle">
                         <div>
