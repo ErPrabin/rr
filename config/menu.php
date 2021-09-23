@@ -8,5 +8,6 @@ return [
         ['name' => 'Item', 'slug' => 'item'],
         ['name' => 'Today Special', 'slug' => 'today-special'],
         ['name' => 'Order', 'slug' => 'order'],
+        ['name' => 'Active User', 'slug' => 'active-user'],
     ]
 ];
