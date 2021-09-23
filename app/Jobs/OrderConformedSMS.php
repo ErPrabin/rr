@@ -9,10 +9,11 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class SendSMS implements ShouldQueue
+class OrderConformedSMS implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     public $number;
+
 
     /**
      * Create a new job instance.
@@ -22,7 +23,7 @@ class SendSMS implements ShouldQueue
     public function __construct($number)
     {
         $this->number=$number;
-
+        
     }
 
     /**
@@ -36,7 +37,7 @@ class SendSMS implements ShouldQueue
         $client = new \Vonage\Client($basic);
 
         $response = $client->sms()->send(
-            new \Vonage\SMS\Message\SMS($this->number, "RR-Biryani", 'Your Food Has Been Packed.')
+            new \Vonage\SMS\Message\SMS($this->number, "RR-Biryani", 'Your Order has been placed Successfully.')
         );
     }
 }

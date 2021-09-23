@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\OrderConformedSMS;
+use App\Jobs\OrderPlacedSMS;
 use App\Jobs\SendSMS;
 use Exception;
 use App\Models\User;
@@ -29,8 +31,8 @@ class OrderController extends Controller
     public function index()
     {
         // $orders= auth()->user()->orders;
-        
-        $orders= Auth::user()->orders()->with('items')->get();
+
+        $orders = Auth::user()->orders()->with('items')->get();
 
         return view('frontend.pages.order-history')->with('orders', $orders);
     }
@@ -46,9 +48,21 @@ class OrderController extends Controller
     }
 
     /** Send SMS with Delay */
-     public function sendSms(){
-       SendSMS::dispatch(auth()->user()->phone_number)->delay(now()->addMinutes(60));
-     }
+    public function sendSms()
+    {
+        SendSMS::dispatch(auth()->user()->phone_number)->delay(now()->addMinutes(60));
+    }
+    /** Send SMS when order to admin */
+    public function orderSms($number)
+    {
+        OrderPlacedSMS::dispatch($number);
+    }
+
+    /** Send SMS when order to user */
+    public function conformSms($number)
+    {
+        OrderConformedSMS::dispatch($number)->delay(now()->addSeconds(15));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -84,48 +98,55 @@ class OrderController extends Controller
                     $stripe = new \Stripe\StripeClient(
                         env('STRIPE_SECRET')
                     );
-                
+
+
                     $token = $stripe->tokens->create([
-                    'card' => [
-                    'number' => $request->card_number,
-                    'exp_month' => $request->expiry_month,
-                    'exp_year' => $request->expiry_year,
-                    'cvc' => $request->cvc,
-                    ],
-                ]);
-                
+                        'card' => [
+                            'number' => $request->card_number,
+                            'exp_month' => $request->expiry_month,
+                            'exp_year' => $request->expiry_year,
+                            'cvc' => $request->cvc,
+                        ],
+                    ]);
+
                     $charge = $stripe->charges->create([
-                    'amount' =>  $this->getNumbers()->get('newTotal') * 100,
-                    'currency' => 'aud',
-                    'source' => $token,
-                    'description' => 'Food ordered by ' . auth()->user()->name ,
-                ]);
+                        'amount' =>  $this->getNumbers()->get('newTotal') * 100,
+                        'currency' => 'aud',
+                        'source' => $token,
+                        'description' => 'Food ordered by ' . auth()->user()->name,
+                    ]);
+
                 }
-                $order= $this->addToOrdersTable($request);
-        
+                $order = $this->addToOrdersTable($request);
+
+
                 if ($order) {
                     $this->addToItemOrderTable($order);
                 }
-                // $user=User::select('email')->where('role', 'admin')->get();
                 // Notification::send($user, new OrderPlacedNotification($order));
                 // Notification::send(Auth::user(), new OrderConfirmed($order));
                 if ($request->payment_gateway == "paypal") {
                     // dd($order->id);
                     $this->getExpressCheckout($order->id);
                 }
+                $user = User::where('role', 'admin')->first();
+
+
+                $this->orderSms($user->phone_number);
+                $this->conformSms(auth()->user()->phone_number);
                 $this->sendSms();
             } catch (\Exception $e) {
                 // DB::rollback();
                 return redirect()->back()->with('error', 'Unable to Place the order');
             }
-        
+
             Cart::instance('default')->destroy();
             session()->forget('coupon');
 
             return redirect()->route('order.show', $order->id)->with('Success', 'Your order has been confirmed! DONT forget to check your email.');
         });
     }
-    
+
 
     /**
      * Store ORDER Details in database
@@ -136,26 +157,26 @@ class OrderController extends Controller
 
     protected function addToOrdersTable($request)  //helper function banako
     {
-        $order= Order::create([
-            'users_id'=> Auth::id(),
-            'name'=>$request->name,
-            'email'=>$request->email,
+        $order = Order::create([
+            'users_id' => Auth::id(),
+            'name' => $request->name,
+            'email' => $request->email,
             'phone' => $request->phone,
-            'address'=> $request->address,
-            'city'=>$request->city,
-            'orderDate' =>Carbon::today(),
-            'discount'=>$this->getNumbers()->get('discount'),
-            'discount_code'=>$this->getNumbers()->get('code'),
-            'subtotal'=>$this->getNumbers()->get('newSubtotal'),
-            'total'=>$this->getNumbers()->get('newTotal'),
-            'payment_gateway'=>$request->payment_gateway,
-            'shipping_name'=>$request->shipping_name,
-            'shipping_email'=>$request->shipping_email,
+            'address' => $request->address,
+            'city' => $request->city,
+            'orderDate' => Carbon::today(),
+            'discount' => $this->getNumbers()->get('discount'),
+            'discount_code' => $this->getNumbers()->get('code'),
+            'subtotal' => $this->getNumbers()->get('newSubtotal'),
+            'total' => $this->getNumbers()->get('newTotal'),
+            'payment_gateway' => $request->payment_gateway,
+            'shipping_name' => $request->shipping_name,
+            'shipping_email' => $request->shipping_email,
             'shipping_phone' => $request->shipping_phone,
-            'shipping_address'=> $request->shipping_address,
-            'shipping_city'=>$request->shipping_city,
+            'shipping_address' => $request->shipping_address,
+            'shipping_city' => $request->shipping_city,
         ]);
-    
+
         return $order;
     }
 
@@ -167,14 +188,14 @@ class OrderController extends Controller
         $provider->setApiCredentials(config('paypal'));
         $token = $provider->getAccessToken();
         $provider->setAccessToken($token);
-        $response= $provider->createOrder([
-            'intent'=> 'CAPTURE',
-            'purchase_units'=> [[
-                'reference_id' => 'transaction_test_number'. $orderId,
+        $response = $provider->createOrder([
+            'intent' => 'CAPTURE',
+            'purchase_units' => [[
+                'reference_id' => 'transaction_test_number' . $orderId,
                 'data' => $checkoutData,
-                'amount'=> [
-                    'currency_code'=> 'USD',
-                    'value'=> $this->getNumbers()->get('newTotal')
+                'amount' => [
+                    'currency_code' => 'USD',
+                    'value' => $this->getNumbers()->get('newTotal')
                 ]
             ]],
             'application_context' => [
@@ -187,12 +208,12 @@ class OrderController extends Controller
 
     private function checkoutData()
     {
-        $cart= Cart::content();
+        $cart = Cart::content();
         return array_map(function ($item) {
-            return[
-                'name'=> $item['name'],
-                'price'=> $item['price'],
-                'qty'=> $item['qty'],
+            return [
+                'name' => $item['name'],
+                'price' => $item['price'],
+                'qty' => $item['qty'],
             ];
         }, $cart->toarray());
     }
@@ -202,15 +223,15 @@ class OrderController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request , $error
      * @return \Illuminate\Http\Response $order
-    */
+     */
 
     protected function addToItemOrderTable($order)
     {
         foreach (Cart::content() as $item) {
             ItemOrder::create([
-                'order_id'=> $order->id,
-                'item_id'=>$item->id,
-                'quantity'=> $item->qty,
+                'order_id' => $order->id,
+                'item_id' => $item->id,
+                'quantity' => $item->qty,
             ]);
         }
     }
