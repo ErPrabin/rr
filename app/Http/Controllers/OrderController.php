@@ -55,7 +55,7 @@ class OrderController extends Controller
     /** Send SMS when order to admin */
     public function orderSms($number)
     {
-        OrderPlacedSMS::dispatch($number);
+        OrderPlacedSMS::dispatch($number)->delay(now()->addSeconds());
     }
 
     /** Send SMS when order to user */
