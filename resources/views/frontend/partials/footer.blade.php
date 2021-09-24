@@ -8,13 +8,13 @@
             <h5 class="footer-modern-title">Gallery</h5>
             <div class="row row-10 gutters-10" data-lightgallery="group">
               <div class="col-4 col-sm-2 col-lg-4">
-                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="" data-lightgallery="item"><img src="{{ asset('assets/img/biryani.jpg') }}" alt="" width="93" height="93"/></a>
+                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="{{ asset('assets/img/biryani4.jpeg') }}" data-lightgallery="item"><img src="{{ asset('assets/img/biryani4.jpeg') }}" alt="" width="93" height="93"/></a>
               </div>
               <div class="col-4 col-sm-2 col-lg-4">
-                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="" data-lightgallery="item"><img src="{{ asset('assets/img/biryani1.jpg') }}" alt="" width="93" height="93"/></a>
+                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="{{ asset('assets/img/biryani3.jpeg') }}" data-lightgallery="item"><img src="{{ asset('assets/img/biryani3.jpeg') }}" alt="" width="93" height="93"/></a>
               </div>
               <div class="col-4 col-sm-2 col-lg-4">
-                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="" data-lightgallery="item"><img src="{{ asset('assets/img/biryani2.jpg') }}" alt="" width="93" height="93"/></a>
+                <!-- Thumbnail Minimal--><a class="thumbnail-minimal" href="{{ asset('assets/img/biryani2.jpg') }}" data-lightgallery="item"><img src="{{ asset('assets/img/biryani2.jpg') }}" alt="" width="93" height="93"/></a>
               </div>
             </div>
           </div>

@@ -7,8 +7,8 @@
                         <div class="col-sm-8 col-md-7">
                             <h2 class="swiper-title-1" data-caption-animate="fadeInLeft" data-caption-delay="100">Tasty Way <br>to Healthier Life
                             </h2>
-                            <h5 class="swiper-title-2 text-width-medium" data-caption-animate="fadeInLeft" data-caption-delay="250">Our organic food contains all necessary elements and vitamins for your health.</h5>
-                            <div class="button-wrap" data-caption-animate="fadeInLeft" data-caption-delay="400"><a class="button button-lg button-shadow-5 button-default-outline button-zakaria" href="grid-shop.html">Shop now</a></div>
+                            <h5 class="swiper-title-2 text-width-medium" data-caption-animate="fadeInLeft" data-caption-delay="250">The original and best Indian Biryani House in sydney</h5>
+                            <div class="button-wrap" data-caption-animate="fadeInLeft" data-caption-delay="400"><a class="button button-lg button-shadow-5 button-default-outline button-zakaria" href="{{ route('contact') }}">Contact</a></div>
                         </div>
                     </div>
                 </div>
