@@ -23,8 +23,7 @@
           <h5 class="footer-modern-title">Quick Links</h5>
           <ul class="footer-modern-list footer-modern-list-2 d-sm-inline-block d-md-block">
             <li><a href="{{ route('about') }}">About Us</a></li>
-            <li><a href="{{ route('menu') }}">Menu</a></li>
-            <li><a href="{{ route('allItems') }}">Items</a></li>
+            <li><a href="{{ route('contact') }}">Contact</a></li>
             
           </ul>
         </div>

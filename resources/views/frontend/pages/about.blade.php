@@ -78,7 +78,7 @@
         </div>
     </section>
     <!-- Section History-->
-    <section class="section section-fluid section-xl section-bottom-0 bg-image-2 section-relative context-dark">
+    {{-- <section class="section section-fluid section-xl section-bottom-0 bg-image-2 section-relative context-dark">
     <div class="container-fluid">
         <h2 class="text-transform-capitalize">Our History</h2>
         <div class="slick-history"> 
@@ -118,5 +118,5 @@
         
         </div>
     </div>
-    </section>
+    </section> --}}
 @endsection
