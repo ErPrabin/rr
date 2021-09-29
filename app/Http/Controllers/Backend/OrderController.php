@@ -35,4 +35,10 @@ class OrderController extends Controller
         }
         return redirect()->back();
     }
+    public function destroy($id)
+    {
+        $data = Order::find($id);
+        $data->delete();
+        return redirect()->route('admin.order.index')->with('flash_success', 'Deleted Successfully');
+    }
 }
