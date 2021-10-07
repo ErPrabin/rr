@@ -3,7 +3,7 @@
         <div class="breadcrumbs-custom-body parallax-content context-dark">
             <div class="container">
             <h2 class="text-transform-capitalize breadcrumbs-custom-title">{{$title1 ?? ''}}</h2>
-            <h5 class="breadcrumbs-custom-text">We are industry-leading organic farm delivering the best products <br class="d-none d-md-block">that boost your daily life energy and potential.</h5>
+            <h5 class="breadcrumbs-custom-text">The original and best Indian Biryani House in sydney</h5>
             </div>
         </div>
     </div>
