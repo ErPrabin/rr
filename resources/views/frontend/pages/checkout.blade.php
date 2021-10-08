@@ -13,7 +13,7 @@
       </div>
       <div class="container">
         <div class="row row-50 justify-content-center">
-          <div class="col-md-10 col-lg-6">
+          <div class="col-md-12 col-lg-12">
             <h3 class="fw-medium">Billing Address</h3>
             <div class="row row-30">
               <div class="col-12">
@@ -47,11 +47,11 @@
                 </div>
               </div>
             </div>
-            <label class="checkbox-inline text-transform-capitalize">
+            {{-- <label class="checkbox-inline text-transform-capitalize">
               <input value="yes" name="different_address" type="checkbox"/>My Billing Address and Shipping Address are the same
-            </label>
+            </label> --}}
           </div>
-          <div class="col-md-10 col-lg-6">
+          {{-- <div class="col-md-10 col-lg-6">
             <h3 class="fw-medium">Delivery Address</h3>
             <div class="row row-30">
               <div class="col-12">
@@ -85,7 +85,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </section>

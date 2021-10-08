@@ -82,15 +82,15 @@ class OrderController extends Controller
             'payment_gateway'     => 'required | string',
         ]);
 
-        if (!$request->different_address) {
-            $this->validate($request, [
-                'shipping_name'     => ' required | string ',
-                'shipping_email'    => ' required | email ',
-                'shipping_phone'    => ' required | numeric ',
-                'shipping_address'  => ' required | string ',
-                'shipping_city'     => ' required | string ',
-            ]);
-        }
+        // if (!$request->different_address) {
+        //     $this->validate($request, [
+        //         'shipping_name'     => ' required | string ',
+        //         'shipping_email'    => ' required | email ',
+        //         'shipping_phone'    => ' required | numeric ',
+        //         'shipping_address'  => ' required | string ',
+        //         'shipping_city'     => ' required | string ',
+        //     ]);
+        // }
 
         return DB::transaction(function () use (&$request) {
             try {
@@ -115,7 +115,6 @@ class OrderController extends Controller
                         'source' => $token,
                         'description' => 'Food ordered by ' . auth()->user()->name,
                     ]);
-
                 }
                 $order = $this->addToOrdersTable($request);
 
@@ -170,11 +169,11 @@ class OrderController extends Controller
             'subtotal' => $this->getNumbers()->get('newSubtotal'),
             'total' => $this->getNumbers()->get('newTotal'),
             'payment_gateway' => $request->payment_gateway,
-            'shipping_name' => $request->shipping_name,
-            'shipping_email' => $request->shipping_email,
-            'shipping_phone' => $request->shipping_phone,
-            'shipping_address' => $request->shipping_address,
-            'shipping_city' => $request->shipping_city,
+            // 'shipping_name' => $request->shipping_name,
+            // 'shipping_email' => $request->shipping_email,
+            // 'shipping_phone' => $request->shipping_phone,
+            // 'shipping_address' => $request->shipping_address,
+            // 'shipping_city' => $request->shipping_city,
         ]);
 
         return $order;
