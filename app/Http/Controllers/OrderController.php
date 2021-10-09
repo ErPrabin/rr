@@ -120,7 +120,7 @@ class OrderController extends Controller
 
 
                 if ($order) {
-                    $this->addToItemOrderTable($order);
+                    $itemorder = $this->addToItemOrderTable($order);
                 }
                 // Notification::send($user, new OrderPlacedNotification($order));
                 // Notification::send(Auth::user(), new OrderConfirmed($order));
@@ -136,6 +136,13 @@ class OrderController extends Controller
                 $this->sendSms();
             } catch (\Exception $e) {
                 // DB::rollback();
+                $itemorder = ItemOrder::where('order_id', $order->id)->get();
+                foreach ($itemorder as $d) {
+                    $d->delete();
+                }
+
+                $orderD=Order::find($order->id);
+                $orderD->delete();
                 return redirect()->back()->with('error', 'Unable to Place the order');
             }
 
