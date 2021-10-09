@@ -25,7 +25,7 @@
                     <b>City: </b>{{ $order->city }}
                     <br>
                 </div>
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                     <h2><b> Shipping Address</b></h2>
                     <b>Name: </b>{{ $order->shipping_name }}
                     <br>
@@ -37,7 +37,7 @@
                     <br>
                     <b>City: </b>{{ $order->shipping_city }}
                     <br>
-                </div>
+                </div> --}}
                 <div class="col-md-6">
                     <h2><b> Items Information</b></h2>
                      <b>Total Price: <h2 style="color: green"> $ {{$order->total  }}</h2> </b>
