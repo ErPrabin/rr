@@ -135,14 +135,14 @@ class OrderController extends Controller
                 $this->conformSms(auth()->user()->phone_number);
                 $this->sendSms();
             } catch (\Exception $e) {
-                // DB::rollback();
-                $itemorder = ItemOrder::where('order_id', $order->id)->get();
-                foreach ($itemorder as $d) {
-                    $d->delete();
-                }
+                DB::rollback();
+                // $itemorder = ItemOrder::where('order_id', $order->id)->get();
+                // foreach ($itemorder as $d) {
+                //     $d->delete();
+                // }
 
-                $orderD=Order::find($order->id);
-                $orderD->delete();
+                // $orderD=Order::find($order->id);
+                // $orderD->delete();
                 return redirect()->back()->with('error', 'Unable to Place the order');
             }
 
