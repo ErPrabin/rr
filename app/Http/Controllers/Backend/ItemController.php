@@ -8,6 +8,8 @@ use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Backend\Traits\Crud;
+use App\Models\ItemOrder;
+use App\Models\Order;
 
 class ItemController extends Controller
 {
@@ -42,5 +44,21 @@ class ItemController extends Controller
         $value=$request->input('query');
         $item=Item::search($value)->get();
         return view('items.search-results')->with('items', $item);
+    }
+    public function destroy($id)
+    {
+        $data = $this->c->find($id);
+        $order=ItemOrder::where('item_id',$data->id)->first();
+        if($order){
+        return redirect()->route('admin.' . $this->module . '.index')->with('error-message', 'Could not delete. This item has order item.');
+
+        }
+        else{
+            $oldfile = $data->image;
+        $data->delete();
+        $this->removeImage($oldfile);
+        return redirect()->route('admin.' . $this->module . '.index')->with('message', 'Deleted Successfully');
+        }
+        
     }
 }

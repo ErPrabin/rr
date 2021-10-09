@@ -6,8 +6,20 @@
         <div class="container-fluid">
 
             <div class="addbtn">
-                <a href="{{ route('admin.'.$page . '.create') }}" class="btn btn-primary">Add More</a>
+                <a href="{{ route('admin.' . $page . '.create') }}" class="btn btn-primary">Add More</a>
             </div>
+            @if (Session::has('message'))
+                <div class="alert alert-success text-center">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    <p>{{ Session::get('message') }}</p>
+                </div>
+            @endif
+            @if (Session::has('error-message'))
+                <div class="alert alert-danger text-center">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    <p>{{ Session::get('error-message') }}</p>
+                </div>
+            @endif
 
             <div class="row">
                 <div class="col-md-12">
@@ -38,7 +50,7 @@
                                             <td>{!! $d->description !!}</td>
                                             <td>{{ $d->veg }}</td>
                                             <td>{{ $d->delivery_time }}</td>
-                                            <td>{!! $d->todays_special==0?'No':'Yes' !!}</td>
+                                            <td>{!! $d->todays_special == 0 ? 'No' : 'Yes' !!}</td>
 
                                             <td>
                                                 <img src="{{ asset('images/' . $page . '/' . $d->image) }}" alt="null"
@@ -49,7 +61,7 @@
                                             </td>
                                             <td>
                                                 @include('backend.include.action-btn')
-                                              
+
                                             </td>
                                         </tr>
                                     @endforeach
