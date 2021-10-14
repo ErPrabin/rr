@@ -50,7 +50,7 @@ class OrderController extends Controller
     /** Send SMS with Delay */
     public function sendSms()
     {
-        SendSMS::dispatch(auth()->user()->phone_number)->delay(now()->addMinutes(60));
+        SendSMS::dispatch(auth()->user()->phone_number)->delay(now()->addMinutes(5));
     }
     /** Send SMS when order to admin */
     public function orderSms($number)
